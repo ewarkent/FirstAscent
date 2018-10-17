@@ -4,7 +4,7 @@ import 'firebase/auth';
 
 // remove keys before pushing updates to github
 // Initialize Firebase
-// check
+// check2
 
 const config = process.env.NODE_ENV === 'production'
     ? prodConfig
