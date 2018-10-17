@@ -1,3 +1,14 @@
+Created the react app first-ascent.
+Finished up the "Sign In with React and Firebase" section.
+
+When continuing check files as you finish up sections to avoid redundant work. 
+
+## Important
+Do not add tracking back to firebase.js; was untracked to prevent scraping of firebase keys. If necessary, input keys manually and/or ask Scott for them. 
+
+## Credits
+ Thank you to our TA, Dylan Rothfeld, for providing our group with help in setting up our React application.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
