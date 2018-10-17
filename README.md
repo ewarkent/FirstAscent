@@ -7,6 +7,9 @@ When continuing check files as you finish up sections to avoid redundant work.
 Do not change tracking of firebase.js. Insert keys manually if need be.
 Github should stop tracking changes to firebase.js now.
 
+
+## Credits
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
