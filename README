@@ -1,3 +1,6 @@
 Created the react app first-ascent.
-Finished up to the "Sign Up with React and Firebase" section.
-When continuing check files as you finish up that section to avoid redundant work.
+Finished up the "Sign In with React and Firebase" section.
+
+When continuing check files as you finish up sections to avoid redundant work.
+__Important:__
+Always remove firebase keys before pushing
