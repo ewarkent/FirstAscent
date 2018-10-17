@@ -1,3 +1,11 @@
+Created the react app first-ascent.
+Finished up the "Sign In with React and Firebase" section.
+
+When continuing check files as you finish up sections to avoid redundant work.
+__Important:__
+Always remove firebase keys before pushing.
+Github should stop tracking changes to firebase.js now.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
