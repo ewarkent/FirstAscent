@@ -2,6 +2,7 @@
 -Created the react app first-ascent.
 -Finished up the "Sign In with React and Firebase" section.
 -Session handling handling done. Basics are done unless we decide to use Redux/MobX
+
 When continuing check files as you finish up sections to avoid redundant work. 
 
 ## Important
