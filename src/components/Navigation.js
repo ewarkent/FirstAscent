@@ -5,6 +5,7 @@ import AuthUserContext from './AuthUserContext';
 import SignOutButton from './SignOut';
 import * as routes from '../constants/routes';
 
+// Use this to handle whether or not a user is logged in a session.
 const Navigation = () =>
   <AuthUserContext.Consumer>
     {authUser => authUser
