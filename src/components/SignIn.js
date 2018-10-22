@@ -15,7 +15,7 @@ const SignInPage = ({ history }) =>
   </div>
 
 const byPropKey = (propertyName, value) => () => ({
-    [propertyName]: value,
+  [propertyName]: value,
 });
 
 const INITIAL_STATE = {
