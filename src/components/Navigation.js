@@ -30,6 +30,7 @@ const NavigationAuth = () =>
   <ul>
     <h1>NagivationAuth</h1>
     <p>This page should show if user is authorized.</p>
+    <p>End product should show this as some sort of bar, like most webpages with sign-in</p>
     <li><Link to={routes.LANDING}>Landing</Link></li>
     <li><Link to={routes.HOME}>Home</Link></li>
     <li><Link to={routes.ACCOUNT}>Account</Link></li>
@@ -41,6 +42,7 @@ const NavigationNonAuth = () =>
   <ul>
     <h1>NagivationNonAuth</h1>
     <p>This page should show if user is not authorized.</p>
+    <p>End product should show this as some sort of bar, like most webpages with sign-in</p>
     <li><Link to={routes.LANDING}>Landing</Link></li>
     <li><Link to={routes.SIGN_IN}>Sign In</Link></li>
   </ul>
