@@ -5,8 +5,11 @@ import AuthUserContext from './AuthUserContext';
 import SignOutButton from './SignOut';
 import * as routes from '../constants/routes';
 
+import './css/Navigation.css'
+
 // Use this to handle whether or not a user is logged in a session.
 const Navigation = () =>
+
   <AuthUserContext.Consumer>
     {authUser => authUser
       ? <NavigationAuth />
@@ -27,24 +30,44 @@ const Navigation = ({ authUser }) =>
 
 // What users can see if they're logged in.
 const NavigationAuth = () =>
-  <ul>
-    <h1>NagivationAuth</h1>
-    <p>This page should show if user is authorized.</p>
-    <p>End product should show this as some sort of bar, like most webpages with sign-in</p>
-    <li><Link to={routes.LANDING}>Landing</Link></li>
-    <li><Link to={routes.HOME}>Home</Link></li>
-    <li><Link to={routes.ACCOUNT}>Account</Link></li>
-    <li><Link to={routes.FORM}>Form</Link></li>
-    <li><SignOutButton /></li>
-  </ul>
+  <div className='mainpage'>
+    <div className='Title'>First Ascent</div>
+    <div className='navbar'>
+
+      {/*<h1>NavigationAuth</h1>
+      <p>This page should show if user is authorized.</p>
+      <p>End product should show this as some sort of bar, like most webpages with sign-in</p>*/}
+
+        <div className='links'>
+             {//<Link className='landinglink' to={routes.LANDING}>Landing</Link>
+             } 
+             <Link className='homelink' to={routes.HOME}>Home</Link>
+             <Link className='accountlink' to={routes.ACCOUNT}>Account</Link>
+             <Link className='formlink' to={routes.FORM}>New Post</Link>
+             <div className='signoutbutton'><SignOutButton /></div>
+        </div>
+        
+    </div>
+  </div>
 
 const NavigationNonAuth = () =>
-  <ul>
-    <h1>NagivationNonAuth</h1>
+<div className='mainpage'>
+  <div className='Title'>First Ascent</div>
+  <div className='navbar'>
+    {/*<h1>NagivationNonAuth</h1>
     <p>This page should show if user is not authorized.</p>
     <p>End product should show this as some sort of bar, like most webpages with sign-in</p>
-    <li><Link to={routes.LANDING}>Landing</Link></li>
-    <li><Link to={routes.SIGN_IN}>Sign In</Link></li>
-  </ul>
+      <li><Link to={routes.LANDING}>Landing</Link></li>
+    <li><Link to={routes.SIGN_IN}>Sign In</Link></li>*/}
+
+      <div className='links'>
+             {//<Link className='landinglink' to={routes.LANDING}>Landing</Link> 
+             }
+             <Link className='signinlink' to={routes.SIGN_IN}>Sign In</Link>
+      </div>
+
+    
+    </div>
+  </div>
 
 export default Navigation;

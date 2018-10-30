@@ -4,10 +4,13 @@ import { Link, withRouter, } from 'react-router-dom';
 import { auth, db } from '../firebase';
 import * as routes from '../constants/routes';
 
+import './css/SignUp.css';
+
 const SignUpPage = ({ history }) =>
-  <div>
-    <h1>SignUp</h1>
-    <SignUpForm history={history} />
+  <div className='signupblock'>
+      <h1>Sign Up Form</h1>
+      <SignUpForm history={history} />
+
   </div>
 
 const INITIAL_STATE = {

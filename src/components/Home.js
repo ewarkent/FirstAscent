@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import withAuthorization from './withAuthorization';
 import { db } from '../firebase';
 
+import './css/Home.css';
+
 class HomePage extends Component {
   constructor(props) {
     super(props);

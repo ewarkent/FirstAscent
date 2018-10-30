@@ -1,0 +1,55 @@
+.mainpage {
+    background-color: black;
+}
+
+.links {
+    padding: 12px;
+}
+
+.landinglink  {
+    color: yellow;
+    padding: 8px;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.homelink {
+    color: yellow;
+    padding: 8px;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.accountlink {
+    color: yellow;
+    padding: 8px;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.formlink {
+    color: yellow;
+    padding: 8px;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.signinlink {
+    color: yellow;
+    padding: 8px;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.signoutbutton {
+    float: right;
+}
+
+.Title {
+    background-color: green;
+    text-indent: 8px;
+    font-style: italic;
+    font-size: 5pc;
+    color: rgba(255, 255, 255, 0.993);
+    text-shadow: 2px 2px black;
+    text-align: bottom;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(0, 0, 0);
+    
+}
