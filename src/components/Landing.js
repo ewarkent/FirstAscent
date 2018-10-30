@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import { db } from '../firebase/firebase.js';
 
-<<<<<<< HEAD
-
-
-=======
 class LandingPage extends Component{
     constructor(){
     super();
@@ -63,7 +59,6 @@ const PostList = ({ posts }) =>
   </div>
 
 /*
->>>>>>> 54b85523367b109ef84e6c8fbd1cdd81d1c44adc
 const LandingPage = () =>
   <div>
     <div className='title'>First Ascent</div>
