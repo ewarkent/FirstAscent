@@ -38,6 +38,10 @@ class HomePage extends Component {
     // what to put here?
   }
 
+  goToLink(key){
+    //
+  }
+
   render() {
     const { users } = this.state;
     const { posts } = this.state;
@@ -74,6 +78,7 @@ const PostList = ({ posts }) =>
         {posts[key].poster} <br />
         {posts[key].location} <br />
         {posts[key].description}  <br />
+        <button onClick="goToLink(key)">Button</button>
         <br />
       </div>
     )}
