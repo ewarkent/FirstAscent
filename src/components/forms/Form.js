@@ -104,7 +104,8 @@ class Form extends React.Component{
                         <div className="col-sm-10">
                             <button type="submit"
                                     id="climb_post_submit"
-                                    className="btn-default btn">
+                                    className="btn-default btn"
+                                    onClick={this.handleSubmit}>
                                 Submit
                             </button>
                         </div>
