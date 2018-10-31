@@ -12,6 +12,7 @@ import PasswordForgetPage from './PasswordForget';
 import HomePage from './Home';
 import AccountPage from './Account';
 import FormPage from './forms/Form';
+import PostPage from './Post';
 
 import * as routes from '../constants/routes';
 
@@ -31,6 +32,8 @@ const App = () =>
       <Route exact path={routes.HOME} component={HomePage} />
       <Route exact path={routes.ACCOUNT} component={AccountPage} />
       <Route exact path={routes.FORM} component = {FormPage} />
+      <Route exact path={routes.POST} component = {PostPage} />
+
 
     </div>
   </Router>
