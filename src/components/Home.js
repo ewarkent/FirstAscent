@@ -77,6 +77,8 @@ const PostList = ({ posts }) =>
         {posts[key].title} <br />
         {posts[key].poster} <br />
         {posts[key].location} <br />
+        {posts[key].GpsCoords} <br />
+        {posts[key].directions} <br />
         {posts[key].description}  <br />
         <button onClick="goToLink(key)">Button</button>
         <br />

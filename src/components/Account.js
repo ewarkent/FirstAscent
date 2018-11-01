@@ -5,10 +5,12 @@ import { PasswordForgetForm } from './PasswordForget';
 import PasswordChangeForm from './PasswordChange';
 import withAuthorization from './withAuthorization';
 
+import './css/Account.css';
+
 const AccountPage = () =>
   <AuthUserContext.Consumer>
     {authUser =>
-      <div>
+      <div className='accountblock'>
         <h1>Account: {authUser.email}</h1>
         <PasswordForgetForm />
         <PasswordChangeForm />

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { db } from '../../firebase/firebase.js';
 
+import '../css/Form.css';
+
 // Form to submit a climb/boulder problem?
 class Form extends React.Component{
 
@@ -13,6 +15,8 @@ class Form extends React.Component{
             poster: '',
             title: '',
             location: '',
+            GpsCoords: '',
+            directions: '',
             description: '',
         }
     }
@@ -35,12 +39,16 @@ class Form extends React.Component{
                 + "Poster: " + this.state.poster + "\n" 
                 + "Title: " + this.state.title + "\n"
                 + "Location: " + this.state.location + "\n"
+                + "GpsCoords: " + this.state.GpsCoords + "\n"
+                + "Directions: " + this.state.directions + "\n"
                 + "Description: " + this.state.description + "\n");
         
         db.ref('posts').push({
           poster: this.state.poster,
           title: this.state.title,
           location: this.state.location,
+          GpsCoords: this.state.GpsCoords,
+          directions: this.state.directions,
           description: this.state.description
         })
     }
@@ -52,64 +60,97 @@ class Form extends React.Component{
         return (
             <form name="climb_post" className="form-horizontal" onSubmit={this.handleSubmit}>
                 <div id="climb_post">
-                    <div className="form-group">
-                        <label className="col-sm-2 control-label required" htmlFor="climb_post_Poster">Poster</label>
-                        <div className="col-sm-10">
-                            <input type="text"
-                                   id="poster"
-                                   required="required"
-                                   value={this.state.poster}
-                                   onChange={this.handleChange}
-                                   className="form-control"/>
+                    <div className='climb_info'>
+                        <div className="form-group">
+                            <label className="col-sm-2 control-label required" htmlFor="climb_post_Poster">Climbed By:</label>
+                            <div className="col-sm-10">
+                                <input type="text"
+                                    id="poster"
+                                    required="required"
+                                    value={this.state.poster}
+                                    onChange={this.handleChange}
+                                    className="form-control"/>
+                            </div>
                         </div>
-                    </div>
-                    <div className="form-group">
-                        <label className="col-sm-2 control-label required" htmlFor="climb_post_title">Title</label>
-                        <div className="col-sm-10">
-                            <input type="text"
-                                   id="title"
-                                   required="required"
-                                   value={this.state.title}
-                                   onChange={this.handleChange}
-                                   className="form-control"/>
+
+                        <div className="form-group">
+                            <label className="col-sm-2 control-label required" htmlFor="climb_post_title">Route Name:</label>
+                            <div className="col-sm-10">
+                                <input type="text"
+                                    id="title"
+                                    required="required"
+                                    value={this.state.title}
+                                    onChange={this.handleChange}
+                                    className="form-control"/>
+                            </div>
                         </div>
-                    </div>
-                    <div className="form-group">
-                        <label className="col-sm-2 control-label required" htmlFor="climb_post_loca">Location</label>
-                        <div className="col-sm-10">
-                            <input type="text"
-                                   id="location"
-                                   required="required"
-                                   value={this.state.location}
-                                   onChange={this.handleChange}
-                                   className="form-control"/>
+
+                        <div className="form-group">
+                            <label className="col-sm-2 control-label required" htmlFor="climb_post_loca">Location:</label>
+                            <div className="col-sm-10">
+                                <input type="text"
+                                    id="location"
+                                    required="required"
+                                    value={this.state.location}
+                                    onChange={this.handleChange}
+                                    className="form-control"/>
+                            </div>
                         </div>
-                    </div>
-                    <div className="form-group">
-                        <label className="col-sm-2 control-label required" htmlFor="climb_post_desc">Body</label>
-                        <div className="col-sm-10">
-                            <textarea   
-                                        cols="50"
-                                        rows="4"
-                                        id="description"
-                                        className="materialize-textarea"
-                                        required="required"
-                                        value={this.state.description}
-                                        onChange={this.handleChange}>
-                            </textarea>
+
+                        <div className="form-group">
+                            <label className="col-sm-2 control-label required" htmlFor="climb_post_gps">GPS Coordinates:</label>
+                            <div className="col-sm-10">
+                                <input type="text"
+                                    id="GpsCoords"
+                                    required="required"
+                                    value={this.state.GpsCoords}
+                                    onChange={this.handleChange}
+                                    className="form-control"/>
+                            </div>
                         </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-sm-2"></div>
-                        <div className="col-sm-10">
-                            <button type="submit"
-                                    id="climb_post_submit"
-                                    className="btn-default btn"
-                                    onClick={this.handleSubmit}>
-                                Submit
-                            </button>
+
+                        <div className="form-group">
+                            <label className="col-sm-2 control-label required" htmlFor="climb_post_desc">Directions:</label>
+                            <div className="col-sm-10">
+                                <textarea   
+                                            cols="50"
+                                            rows="4"
+                                            id="directions"
+                                            className="materialize-textarea"
+                                            required="required"
+                                            value={this.state.directions}
+                                            onChange={this.handleChange}>
+                                </textarea>
+                            </div>
                         </div>
-                    </div>
+
+                        <div className="form-group">
+                            <label className="col-sm-2 control-label required" htmlFor="climb_post_desc">Description:</label>
+                            <div className="col-sm-10">
+                                <textarea   
+                                            cols="50"
+                                            rows="4"
+                                            id="description"
+                                            className="materialize-textarea"
+                                            required="required"
+                                            value={this.state.description}
+                                            onChange={this.handleChange}>
+                                </textarea>
+                            </div>
+                        </div>
+                        
+                        <div className="form-group">
+                            <div className="col-sm-2"></div>
+                            <div className="col-sm-10">
+                                <button type="submit"
+                                        id="climb_post_submit"
+                                        className="btn-default btn"
+                                        onClick={this.handleSubmit}>
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </div>    
                 </div>
             </form>
         );
