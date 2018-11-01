@@ -1,0 +1,82 @@
+/* NAMES */
+.route-climber-names {
+    padding: 20px;
+    margin: auto;
+   
+}
+
+.route {
+    background-color: orange;
+    float: left;
+    width: 40%;
+    border: 2px solid black;
+    font-size: 35px;
+    margin: 10px;
+}
+
+.climber {
+    background-color: lightblue;
+    float: right;
+    text-align: right;
+    width: 40%;
+    border: 2px solid black;
+    font-size: 35px;
+    margin: 10px;
+}
+
+/*PIC and MAP*/
+
+.pic-map{
+    padding: 20px;
+    margin: auto;
+}
+
+.pic {
+    background-color:lightgreen;
+    float: left;
+    width: 48%;
+    height: 350px;
+    border: 2px solid black;
+}
+
+.map {
+    background-color:lightgreen;
+    float: right;
+    width: 48%;
+    height: 350px;
+    border: 2px solid black;
+}
+
+/*DIFF-STAR-COMMDIFF*/
+
+.diff-star-comm_diff{
+    padding: 25px;
+}
+
+.diff{
+    background-color:yellow;
+    float: left;
+    width: 28%;
+    border: 2px solid black;
+    font-size: 25px;
+    margin: 20px;
+}
+
+.star{
+    background-color: lightcoral;
+    float: left;
+    width: 28%;
+    border: 2px solid black;
+    font-size: 25px;
+    margin: 20px;
+}
+
+.comm_diff{
+    background-color:lightgray;
+    float: left;
+    width: 28%;
+    border: 2px solid black;
+    font-size: 25px;
+    margin: 20px;
+}
+

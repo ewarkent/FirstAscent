@@ -55,7 +55,7 @@ class Form extends React.Component{
 
     
 
-    //poster, title, location, description
+    //poster, title, location, gpscoords, directions, description
     render() {
         return (
             <form name="climb_post" className="form-horizontal" onSubmit={this.handleSubmit}>
