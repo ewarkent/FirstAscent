@@ -4,6 +4,9 @@ import withAuthorization from './withAuthorization';
 import * as firebase from '../firebase/firebase.js';
 import { db } from '../firebase';
 
+import { Link } from 'react-router-dom';
+import * as routes from '../constants/routes';
+
 import './css/Home.css';
 
 class HomePage extends Component {
@@ -80,7 +83,10 @@ const PostList = ({ posts }) =>
         {posts[key].GpsCoords} <br />
         {posts[key].directions} <br />
         {posts[key].description}  <br />
-        <button onClick="goToLink(key)">Button</button>
+        <button>
+          <Link className='postlink' to={routes.POST}>View Post</Link>
+        </button>
+        ----Test print key : {key}
         <br />
       </div>
     )}

@@ -1,6 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
+import * as firebase from '../firebase/firebase.js';
+import { db } from '../firebase';
 
 import './css/Post.css';
+
+
 
 const PostPage = () =>
   <div className='postpage'>
