@@ -3,7 +3,7 @@ import React from 'react';
 import './css/Post.css';
 
 const PostPage = () =>
-  <div>
+  <div className='postpage'>
     <h1>Post Page</h1>
 
     <div className='route-climber-names'>
@@ -22,10 +22,12 @@ const PostPage = () =>
       <div className='star'>Star Rating</div>
       <div className='comm_diff'>Community Difficulty</div>
     </div>
-  
-    <div className='description'>Description</div>
-    <div className='location'>Location</div>
-    <div className='comments'>Comments</div>
+
+    <div className='text-boxes'>
+      <div className='description'>Description</div>
+      <div className='location'>Location</div>
+      <div className='comments'>Comments</div>
+    </div>
 
   </div>
 

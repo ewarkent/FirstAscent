@@ -1,3 +1,7 @@
+.postpage {
+   
+}
+
 /* NAMES */
 .route-climber-names {
     padding: 20px;
@@ -6,7 +10,7 @@
 }
 
 .route {
-    background-color: orange;
+    
     float: left;
     width: 40%;
     border: 2px solid black;
@@ -15,7 +19,7 @@
 }
 
 .climber {
-    background-color: lightblue;
+    
     float: right;
     text-align: right;
     width: 40%;
@@ -51,10 +55,11 @@
 
 .diff-star-comm_diff{
     padding: 25px;
+    margin: auto;
 }
 
 .diff{
-    background-color:yellow;
+    
     float: left;
     width: 28%;
     border: 2px solid black;
@@ -63,7 +68,7 @@
 }
 
 .star{
-    background-color: lightcoral;
+    
     float: left;
     width: 28%;
     border: 2px solid black;
@@ -72,7 +77,7 @@
 }
 
 .comm_diff{
-    background-color:lightgray;
+    
     float: left;
     width: 28%;
     border: 2px solid black;
@@ -80,3 +85,34 @@
     margin: 20px;
 }
 
+/* Bottom text boxes*/
+.text-boxes {
+    margin: auto;
+    margin-top: 30%;
+    padding: 20px;
+
+}
+
+.description {
+    width: 95%;
+    border: 2px solid black;
+    font-size: 25px;
+    margin-bottom: 30px;
+   
+}
+
+.location {
+    width: 95%;
+    border: 2px solid black;
+    font-size: 25px;
+    margin-bottom: 30px;
+   
+}
+
+.comments {
+    width: 95%;
+    border: 2px solid black;
+    font-size: 25px;
+    margin-bottom: 30px;
+    
+}
