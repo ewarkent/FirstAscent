@@ -24,6 +24,7 @@ class PostPage extends Component {
     console.log('postKey=' +postKey)
 
     postRef.orderByKey().on("child_added", function(data){
+      //not working
       console.log('dataKey=' +data.key)
       if (data.key == postKey){
         var p = data.val();
