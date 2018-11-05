@@ -84,7 +84,7 @@ const PostList = ({ posts }) =>
         {posts[key].directions} <br />
         {posts[key].description}  <br />
         <button>
-          <Link className='postlink' to={routes.POST}>View Post</Link>
+          <Link className='postlink' to={routes.POST + '/' + key}>View Post</Link>
         </button>
         ----Test print key : {key}
         <br />

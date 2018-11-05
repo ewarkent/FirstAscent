@@ -3,7 +3,7 @@ import * as firebase from '../firebase/firebase.js';
 import { db } from '../firebase';
 
 import './css/Post.css';
-
+import { extend } from '@firebase/util';
 
 
 const PostPage = () =>

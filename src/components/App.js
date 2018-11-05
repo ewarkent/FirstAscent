@@ -32,7 +32,7 @@ const App = () =>
       <Route exact path={routes.HOME} component={HomePage} />
       <Route exact path={routes.ACCOUNT} component={AccountPage} />
       <Route exact path={routes.FORM} component = {FormPage} />
-      <Route exact path={routes.POST} component = {PostPage} />
+      <Route path={routes.POST} component = {PostPage} />
 
 
     </div>
