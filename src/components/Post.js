@@ -21,15 +21,15 @@ class PostPage extends Component {
     var postKey = window.location.pathname.replace('/post/','');
     console.log('postKey=' +postKey)
 
-    postRef.orderByKey().equalTo(postKey).on("child_added", function(data){
+    postRef.orderByKey().equalTo(postKey).on("child_added", data => {
       console.log('dataKey=' + data.key)
       var p = data.val();
       console.log("found"+ data.key);
       console.log("title: "+ p.title);
 
-      //this.setState({
-      //  post: data.val()
-      //})
+      this.setState({
+        post: data.val()
+      })
     });
   }
 
@@ -38,18 +38,18 @@ class PostPage extends Component {
     {console.log(post)}
     return (
       <div>
-        {<PostDisplay/> }
+        {!!post && <PostDisplay post={post}/> }
       </div>
     );
   }
 }
 
-const PostDisplay = () =>
+const PostDisplay = ({post}) =>
 <div className='postpage'>
     <h1>Post Page</h1>
 
     <div className='route-climber-names'>
-      <div className='route'>Title</div>
+      <div className='route'>{post.title}</div>
       <div className='climber'>FA: Ethan</div>
     </div>
 
@@ -66,8 +66,8 @@ const PostDisplay = () =>
     </div>
 
     <div className='text-boxes'>
-      <div className='description'>Description</div>
-      <div className='location'>Location</div>
+      <div className='description'>{post.description}</div>
+      <div className='location'>{post.location}</div>
       <div className='comments'>Comments</div>
     </div>
   </div>
