@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import * as firebase from '../firebase/firebase.js';
 import { DataSnapshot } from '@firebase/database';
 import { db } from '../firebase';
+import GoogleMapsContainer from './Maps';
 
 import './css/Post.css';
 
@@ -55,7 +56,7 @@ const PostDisplay = ({post}) =>
 
     <div className='pic-map'>
       <div className='pic'>Picture Goes Here</div>
-      <div className='map'>Google Maps Goes Here</div>
+      <div className='map'><GoogleMapsContainer/></div>
     </div>
     
 

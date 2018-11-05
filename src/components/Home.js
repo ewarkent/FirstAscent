@@ -41,10 +41,6 @@ class HomePage extends Component {
     // what to put here?
   }
 
-  goToLink(key){
-    //
-  }
-
   render() {
     const { users } = this.state;
     const { posts } = this.state;

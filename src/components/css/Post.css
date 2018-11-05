@@ -33,6 +33,7 @@
 .pic-map{
     padding: 20px;
     margin: auto;
+    width: 100vw;
 }
 
 .pic {
@@ -44,11 +45,12 @@
 }
 
 .map {
-    background-color:lightgreen;
-    float: right;
-    width: 48%;
-    height: 350px;
-    border: 2px solid black;
+    /*background-color:lightgreen;*/
+    float: left;
+    position: relative;
+    /*max-width: 100%;
+    height: auto;
+    border: 2px solid black;*/
 }
 
 /*DIFF-STAR-COMMDIFF*/
