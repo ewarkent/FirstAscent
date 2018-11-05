@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
 
-import withAuthorization from './withAuthorization';
 import * as firebase from '../firebase/firebase.js';
+import { DataSnapshot } from '@firebase/database';
 import { db } from '../firebase';
 
 import './css/Post.css';
-import { extend } from '@firebase/util';
-import { DataSnapshot } from '@firebase/database';
 
 class PostPage extends Component {
   constructor(props) {
@@ -18,38 +16,35 @@ class PostPage extends Component {
   }
 
   componentWillMount(){
-    var postRef = firebase.db.ref('post');
+    var postRef = firebase.db.ref('posts');
     //getting key from url
     var postKey = window.location.pathname.replace('/post/','');
     console.log('postKey=' +postKey)
 
-    postRef.orderByKey().on("child_added", function(data){
-      //not working
-      console.log('dataKey=' +data.key)
-      if (data.key == postKey){
-        var p = data.val();
-        console.log("found"+ data.key);
-        console.log("title: "+p.title)
+    postRef.orderByKey().equalTo(postKey).on("child_added", function(data){
+      console.log('dataKey=' + data.key)
+      var p = data.val();
+      console.log("found"+ data.key);
+      console.log("title: "+ p.title);
 
-        this.setState({
-          post: data.val()
-        })
-      }
+      //this.setState({
+      //  post: data.val()
+      //})
     });
   }
 
   render() {
     const {post} = this.state;
+    {console.log(post)}
     return (
       <div>
-        {<PostDisplay post={post} /> }
-        //{console.log(post)}
+        {<PostDisplay/> }
       </div>
     );
   }
 }
 
-const PostDisplay = ({post}) =>
+const PostDisplay = () =>
 <div className='postpage'>
     <h1>Post Page</h1>
 
@@ -75,7 +70,6 @@ const PostDisplay = ({post}) =>
       <div className='location'>Location</div>
       <div className='comments'>Comments</div>
     </div>
-
   </div>
   
 
