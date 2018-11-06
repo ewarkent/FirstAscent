@@ -51,7 +51,7 @@ const PostDisplay = ({post}) =>
 
     <div className='route-climber-names'>
       <div className='route'>{post.title}</div>
-      <div className='climber'>FA: Ethan</div>
+      <div className='climber'>FA: {post.poster}</div>
     </div>
 
     <div className='pic-map'>
