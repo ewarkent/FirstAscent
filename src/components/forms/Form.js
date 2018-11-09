@@ -14,6 +14,7 @@ class Form extends React.Component{
         this.state = {
             poster: '',
             title: '',
+            difficulty: '',
             location: '',
             GpsCoords: '',
             directions: '',
@@ -38,6 +39,7 @@ class Form extends React.Component{
         alert("Submission was pressed with the following attributes:\n"
                 + "Poster: " + this.state.poster + "\n" 
                 + "Title: " + this.state.title + "\n"
+                + "Difficulty: " + this.state.difficulty + "\n"
                 + "Location: " + this.state.location + "\n"
                 + "GpsCoords: " + this.state.GpsCoords + "\n"
                 + "Directions: " + this.state.directions + "\n"
@@ -46,6 +48,7 @@ class Form extends React.Component{
         db.ref('posts').push({
           poster: this.state.poster,
           title: this.state.title,
+          difficulty : this.state.difficulty,
           location: this.state.location,
           GpsCoords: this.state.GpsCoords,
           directions: this.state.directions,
@@ -80,6 +83,18 @@ class Form extends React.Component{
                                     id="title"
                                     required="required"
                                     value={this.state.title}
+                                    onChange={this.handleChange}
+                                    className="form-control"/>
+                            </div>
+                        </div>
+
+                        <div className="form-group">
+                            <label className="col-sm-2 control-label required" htmlFor="climb_post_difficulty">Route Difficulty:</label>
+                            <div className="col-sm-10">
+                                <input type="text"
+                                    id="title"
+                                    required="required"
+                                    value={this.state.difficulty}
                                     onChange={this.handleChange}
                                     className="form-control"/>
                             </div>
