@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 
 import * as firebase from '../firebase/firebase.js';
+import { DataSnapshot } from '@firebase/database';
+import { db } from '../firebase';
 import GoogleMapsContainer from './Maps';
 
 import './css/Post.css';
@@ -34,7 +36,7 @@ class PostPage extends Component {
 
   render() {
     const {post} = this.state;
-    console.log(post)
+    {console.log(post)}
     return (
       <div>
         {!!post && <PostDisplay post={post}/> }
@@ -53,7 +55,7 @@ const PostDisplay = ({post}) =>
     </div>
 
     <div className='pic-map'>
-      <div className='pic'>Picture Goes Here</div>
+      <div className='pic'>{post.imageURL && <img src={post.imageURL} />}</div>
       <div className='map'><GoogleMapsContainer/></div>
     </div>
     

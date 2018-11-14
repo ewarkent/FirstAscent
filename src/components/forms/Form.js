@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { db } from '../../firebase/firebase.js';
+import firebase from 'firebase';
 import FormValidator from './FormValidator.js';
+import FileUploader from "react-firebase-file-uploader"; //in bash: $ npm i react-firebase-file-uploader
 
 //import FormRules from './FormRules';
 
@@ -24,6 +26,12 @@ class Form extends Component{
             directions: '',
             description: '',
 
+            
+            image: '',
+            isUploading: false,
+            progress: 0,
+            imageURL: '',
+
             // Let these contain the errors found in the form
             FormErrors: {
                 poster: 'Field is empty!',
@@ -33,6 +41,7 @@ class Form extends Component{
                 GpsCoords: 'Field is empty!',
                 directions: 'Field is empty!',
                 description: 'Field is empty!',
+                image: 'Choose an image!',     
             },
 
             // Let these validate the content inside Form.js's states
@@ -43,6 +52,7 @@ class Form extends Component{
             GpsCoordsValid: false,
             directionsValid: false,
             descriptionValid: false,
+            imageValid: false, //
 
             formIsValid: false,
             
@@ -57,8 +67,6 @@ class Form extends Component{
 
         const id = e.target.id;
         const value = e.target.value;
-
-        
 
         this.setState(
             { [id]: value, },
@@ -118,6 +126,7 @@ class Form extends Component{
                 descV = regexAny.test(value)
                 formErrors.description = descV ? '' : isEmpty;
                 break;
+            //add case for image.
             default:
                 break;
         }
@@ -163,6 +172,25 @@ class Form extends Component{
         //console.log("This form is currently: " + this.state.formIsValid);
     }
 
+    handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
+
+    handleProgress = progress => this.setState({ progress });
+
+    handleUploadError = error => {
+        this.setState({ isUploading: false });
+        console.error(error);
+    };
+
+    handleUploadSuccess = filename => {
+        this.setState({ image: filename, progress: 100, isUploading: false });
+        firebase
+          .storage()
+          .ref("boulderImages")
+          .child(filename)
+          .getDownloadURL()
+          .then(url => this.setState({ imageURL: url }));
+      };
+
     //don't actually submit something yet???
     //this.props.onSubmit(this.state);
     handleSubmit = (e) => {
@@ -177,7 +205,9 @@ class Form extends Component{
                 + "Location: " + this.state.location + "\n"
                 + "GpsCoords: " + this.state.GpsCoords + "\n"
                 + "Directions: " + this.state.directions + "\n"
-                + "Description: " + this.state.description + "\n");
+                + "Description: " + this.state.description + "\n"
+                + "Image: " + this.state.image + "\n"
+                + "ImageURL: " + this.state.imageURL + "\n");
         
              db.ref('posts').push({
                 poster: this.state.poster,
@@ -186,8 +216,11 @@ class Form extends Component{
                 location: this.state.location,
                 GpsCoords: this.state.GpsCoords,
                 directions: this.state.directions,
-                description: this.state.description
+                description: this.state.description,
+                image: this.state.image,
+                imageURL: this.state.imageURL
             })
+
         }else{
             
         }
@@ -278,6 +311,21 @@ class Form extends Component{
                                     </textarea>
                                     <span className="help-block">{errors.description}</span>
                                 </div>
+
+                                <label className="control-label" htmlFor="climb_post_image">Image:</label>
+                                {this.state.isUploading && <p>Uploading Image: {this.state.progress}%</p>}
+
+
+                                <FileUploader
+                                accept="image/*"
+                                name="image"
+                                randomizeFilename
+                                storageRef={firebase.storage().ref("boulderImages")}
+                                onUploadStart={this.handleUploadStart}
+                                onUploadError={this.handleUploadError}
+                                onUploadSuccess={this.handleUploadSuccess}
+                                onProgress={this.handleProgress}
+                                />
 
                                 <div>
                                     <button 
