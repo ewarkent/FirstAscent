@@ -51,7 +51,7 @@ const PostDisplay = ({post}) =>
 
     <div className='route-climber-names'>
       <div className='route'>{post.title}</div>
-      <div className='climber'>FA: {post.poster}</div>
+      <div className='climber'>First Ascent: {post.poster}</div>
     </div>
 
     <div className='pic-map'>
@@ -61,14 +61,14 @@ const PostDisplay = ({post}) =>
     
 
     <div className='diff-star-comm_diff'>
-      <div className='diff'>Difficulty</div>
+      <div className='diff'>Difficulty {post.difficulty}</div>
       <div className='star'>Star Rating</div>
       <div className='comm_diff'>Community Difficulty</div>
     </div>
 
     <div className='text-boxes'>
-      <div className='description'>{post.description}</div>
-      <div className='location'>{post.location}</div>
+      <div className='description'>Description: {post.description}</div>
+      <div className='location'>Location: {post.location}</div>
       <div className='comments'>Comments</div>
     </div>
   </div>

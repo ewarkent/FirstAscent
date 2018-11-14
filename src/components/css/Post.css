@@ -1,11 +1,10 @@
-.postpage {
-   
-}
+
 
 /* NAMES */
 .route-climber-names {
     padding: 20px;
-    margin: auto;
+    margin: 10px;
+    overflow:auto;
    
 }
 
@@ -16,16 +15,18 @@
     border: 2px solid black;
     font-size: 35px;
     margin: 10px;
+    overflow:auto;
 }
 
 .climber {
     
     float: right;
-    text-align: right;
+    text-align: left;
     width: 40%;
     border: 2px solid black;
     font-size: 35px;
     margin: 10px;
+    overflow:auto;
 }
 
 /*PIC and MAP*/
@@ -34,6 +35,7 @@
     padding: 20px;
     margin: auto;
     width: 100vw;
+    overflow:auto;
 }
 
 .pic {
@@ -42,6 +44,7 @@
     width: 48%;
     height: 350px;
     border: 2px solid black;
+    overflow:auto;
 }
 
 .map {
@@ -51,6 +54,10 @@
     /*max-width: 100%;
     height: auto;
     border: 2px solid black;*/
+    width: 50%;
+    height: 350px;
+    border: 2px solid black;
+   
 }
 
 /*DIFF-STAR-COMMDIFF*/
@@ -58,6 +65,7 @@
 .diff-star-comm_diff{
     padding: 25px;
     margin: auto;
+    overflow:auto;
 }
 
 .diff{
@@ -67,6 +75,7 @@
     border: 2px solid black;
     font-size: 25px;
     margin: 20px;
+    overflow:auto;
 }
 
 .star{
@@ -76,6 +85,7 @@
     border: 2px solid black;
     font-size: 25px;
     margin: 20px;
+    overflow:auto;
 }
 
 .comm_diff{
@@ -85,13 +95,14 @@
     border: 2px solid black;
     font-size: 25px;
     margin: 20px;
+    overflow:auto;
 }
 
 /* Bottom text boxes*/
 .text-boxes {
     margin: auto;
-    margin-top: 30%;
     padding: 20px;
+    overflow:auto;
 
 }
 
@@ -100,6 +111,7 @@
     border: 2px solid black;
     font-size: 25px;
     margin-bottom: 30px;
+    overflow:auto;
    
 }
 
@@ -108,6 +120,7 @@
     border: 2px solid black;
     font-size: 25px;
     margin-bottom: 30px;
+    overflow:auto;
    
 }
 
@@ -116,5 +129,5 @@
     border: 2px solid black;
     font-size: 25px;
     margin-bottom: 30px;
-    
+    overflow:auto;
 }
