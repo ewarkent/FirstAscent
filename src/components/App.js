@@ -14,6 +14,7 @@ import AccountPage from './Account';
 import FormPage from './forms/Form';
 import PostPage from './Post';
 import GoogleMapsContainer from './Maps';
+import drawline from './drawline';
 
 import * as routes from '../constants/routes';
 
@@ -33,6 +34,7 @@ const App = () =>
       <Route exact path={routes.HOME} component={HomePage} />
       <Route exact path={routes.ACCOUNT} component={AccountPage} />
       <Route exact path={routes.FORM} component = {FormPage} />
+      <Route exact path={routes.DRAWLINE} component = {drawline} />
       <Route path={routes.POST} component = {PostPage} />
       <Route exact path={routes.MAPS} component = {GoogleMapsContainer} />
 

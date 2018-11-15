@@ -4,8 +4,10 @@ import * as firebase from '../firebase/firebase.js';
 import { DataSnapshot } from '@firebase/database';
 import { db } from '../firebase';
 import GoogleMapsContainer from './Maps';
-import AutoScale from 'react-auto-scale';
 import './css/Post.css';
+
+
+
 
 class PostPage extends Component {
   constructor(props) {

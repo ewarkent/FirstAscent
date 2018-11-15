@@ -326,7 +326,7 @@ class Form extends Component{
                                 onUploadSuccess={this.handleUploadSuccess}
                                 onProgress={this.handleProgress}
                                 />
-
+                                
                                 <div>
                                     <button 
                                             disabled = {!this.state.formIsValid}
@@ -337,6 +337,7 @@ class Form extends Component{
                                         Submit
                                     </button>
                                 </div>
+
                         </div>
                     </div>    
                 </div>
