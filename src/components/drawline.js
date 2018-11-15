@@ -4,6 +4,12 @@ import './css/drawline.css';
 import ReactDOM from 'react-dom';
 
 export default class canvas extends React.Component{
+
+    saveCanvas() {
+        var dt = canvas.toDataURL('image/jpeg');
+        this.href = dt;
+      }
+
     constructor(props) {
         super(props);
          
@@ -18,26 +24,30 @@ export default class canvas extends React.Component{
     }
     render() {
         return (
-            <div className="canvasdiv">    
-                <canvas id="canvas" ref="canvas" 
-                        width={640}
-                        height={425}
-                        onMouseDown={
-                            e => {
-                                let nativeEvent = e.nativeEvent;
-                                this.handleMouseDown(nativeEvent);
-                            }}
-                        onMouseMove={
-                            e => {
-                                let nativeEvent = e.nativeEvent;
-                                this.handleMouseMove(nativeEvent);
-                            }}    
-                        onMouseUp={
-                            e => {
-                                let nativeEvent = e.nativeEvent;
-                                this.handleMouseUp(nativeEvent);
-                            }}
-                />
+            <div className='container'>
+                <div className="canvasdiv">    
+                    <canvas id="canvas" ref="canvas" 
+                            width={640}
+                            height={425}
+                            onMouseDown={
+                                e => {
+                                    let nativeEvent = e.nativeEvent;
+                                    this.handleMouseDown(nativeEvent);
+                                }}
+                            onMouseMove={
+                                e => {
+                                    let nativeEvent = e.nativeEvent;
+                                    this.handleMouseMove(nativeEvent);
+                                }}    
+                            onMouseUp={
+                                e => {
+                                    let nativeEvent = e.nativeEvent;
+                                    this.handleMouseUp(nativeEvent);
+                                }}
+                    />
+                </div>
+                {//<button onClick={ this.saveCanvas }>SAVE IMAGE</button>
+                }
             </div>    
         );
     }
