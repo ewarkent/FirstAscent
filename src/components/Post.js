@@ -5,6 +5,7 @@ import { DataSnapshot } from '@firebase/database';
 import { db } from '../firebase';
 import GoogleMapsContainer from './Maps';
 import './css/Post.css';
+import StarRatingComponent from './StarRatingComponent.js';
 
 
 
@@ -69,7 +70,7 @@ const PostDisplay = ({post}) =>
         <div className='dsc_content'>{post.difficulty}</div>
       </div>
       <div className='star'>Star Rating:
-        <div className='dsc_content'>(*STARS*)</div>
+        <div className='dsc_content'><StarRatingComponent/></div>
       </div>
       <div className='comm_diff'>Community Difficulty:
         <div className='dsc_content'>(*COMM DIFF*)</div>
@@ -78,10 +79,11 @@ const PostDisplay = ({post}) =>
 
     <div className='text-boxes'>
       <div className='description'>Description: 
-        <div className='textbox_content'>{post.description}</div>
+        <div className='textbox_content'>- {post.description}</div>
       </div>
-      <div className='location'>Location: 
-        <div className='textbox_content'>{post.location}</div>
+      <div className='location'>Location / Directions: 
+        <div className='textbox_content'>- {post.location}</div>
+        <div className='textbox_content'>- {post.directions}</div>
       </div>
       <div className='comments'>Comments:
         <div className='textbox_content'>(*COMMENT SECTION*)</div>
