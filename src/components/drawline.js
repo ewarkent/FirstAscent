@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './css/drawline.css';
+import ladder from './ladder.jpg';
 
 import ReactDOM from 'react-dom';
 
@@ -88,12 +89,24 @@ export default class canvas extends React.Component{
             ctx.closePath();
         
     }
+    
     componentDidMount() {
-        const canvas = ReactDOM.findDOMNode(this.refs.canvas);
-        const ctx = canvas.getContext("2d");
-        ctx.fillStyle = 'rgb(200,255,255)';
-        ctx.fillRect(0, 0, 625, 425);
+        //const canvas = ReactDOM.findDOMNode(this.refs.canvas);
+        //const ctx = canvas.getContext("2d");
+        //ctx.fillStyle = 'rgb(200,255,255)';
+        //ctx.fillRect(0, 0, 625, 425);
+
+        var myCanvas = document.getElementById('canvas');
+        var ctx = myCanvas.getContext('2d');
+        var img = new Image;
+        img.onload = function(){
+        ctx.drawImage(img,0,0); 
+        };
+        img.src = ladder; //This is where we need to upload the image
     }
+
+    
+    
 }
 
 
