@@ -65,15 +65,27 @@ const PostDisplay = ({post}) =>
     
 
     <div className='diff-star-comm_diff'>
-      <div className='diff'>Difficulty {post.difficulty}</div>
-      <div className='star'>Star Rating</div>
-      <div className='comm_diff'>Community Difficulty</div>
+      <div className='diff'>Difficulty: 
+        <div className='dsc_content'>{post.difficulty}</div>
+      </div>
+      <div className='star'>Star Rating:
+        <div className='dsc_content'>(*STARS*)</div>
+      </div>
+      <div className='comm_diff'>Community Difficulty:
+        <div className='dsc_content'>(*COMM DIFF*)</div>
+      </div>
     </div>
 
     <div className='text-boxes'>
-      <div className='description'>Description: {post.description}</div>
-      <div className='location'>Location: {post.location}</div>
-      <div className='comments'>Comments</div>
+      <div className='description'>Description: 
+        <div className='textbox_content'>{post.description}</div>
+      </div>
+      <div className='location'>Location: 
+        <div className='textbox_content'>{post.location}</div>
+      </div>
+      <div className='comments'>Comments:
+        <div className='textbox_content'>(*COMMENT SECTION*)</div>
+      </div>
     </div>
   </div>
   

@@ -16,6 +16,9 @@
     font-size: 35px;
     margin: 10px;
     overflow:auto;
+    text-align: center;
+    text-decoration: underline;
+    
 }
 
 .climber {
@@ -27,6 +30,8 @@
     font-size: 35px;
     margin: 10px;
     overflow:auto;
+    text-align: center;
+    text-decoration: underline;
 }
 
 /*PIC and MAP*/
@@ -84,6 +89,7 @@ img {
     font-size: 25px;
     margin: 20px;
     overflow:auto;
+    padding: 5px;
 }
 
 .star{
@@ -94,6 +100,7 @@ img {
     font-size: 25px;
     margin: 20px;
     overflow:auto;
+    padding: 5px;
 }
 
 .comm_diff{
@@ -104,6 +111,15 @@ img {
     font-size: 25px;
     margin: 20px;
     overflow:auto;
+    padding: 5px;
+}
+
+.dsc_content{
+    font-size: 20px;
+    margin: 10px;
+    overflow:auto;
+    text-align: center;
+    font-weight: bold;
 }
 
 /* Bottom text boxes*/
@@ -120,6 +136,7 @@ img {
     font-size: 25px;
     margin-bottom: 30px;
     overflow:auto;
+    padding: 5px;
    
 }
 
@@ -129,6 +146,7 @@ img {
     font-size: 25px;
     margin-bottom: 30px;
     overflow:auto;
+    padding: 5px;
    
 }
 
@@ -137,5 +155,12 @@ img {
     border: 2px solid black;
     font-size: 25px;
     margin-bottom: 30px;
+    overflow:auto;
+    padding: 5px;
+}
+
+.textbox_content{
+    font-size: 15px;
+    margin: 17px;
     overflow:auto;
 }
