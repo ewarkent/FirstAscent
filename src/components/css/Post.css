@@ -1,15 +1,19 @@
-
+.postpage{
+    background-image: url("yosemite.jpg");
+    background-size:     cover;                      
+    background-repeat:   no-repeat;
+    background-position: center top;
+    background-attachment: fixed;
+}
 
 /* NAMES */
 .route-climber-names {
     padding: 20px;
     margin: 10px;
     overflow:auto;
-   
 }
 
 .route {
-    
     float: left;
     width: 40%;
     border: 2px solid black;
@@ -18,7 +22,7 @@
     overflow:auto;
     text-align: center;
     text-decoration: underline;
-    
+    background-color: white;  
 }
 
 .climber {
@@ -32,27 +36,27 @@
     overflow:auto;
     text-align: center;
     text-decoration: underline;
+    background-color: white;
 }
 
 /*PIC and MAP*/
 
 .pic-map{
     padding: 20px;
-    margin: auto;
-    width: 100vw;
+    float:center;
+    width: 96%;
     overflow:auto;
 }
 
 .pic {
     float: left;
-    width: 48%;
+    width: 45%;
     height: 350px;
     border: 2px solid black;
     overflow:auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: black;
 }
 
 img {
@@ -90,6 +94,7 @@ img {
     margin: 20px;
     overflow:auto;
     padding: 5px;
+    background-color: white;
 }
 
 .star{
@@ -101,6 +106,7 @@ img {
     margin: 20px;
     overflow:auto;
     padding: 5px;
+    background-color: white;
 }
 
 .comm_diff{
@@ -112,6 +118,7 @@ img {
     margin: 20px;
     overflow:auto;
     padding: 5px;
+    background-color: white;
 }
 
 .dsc_content{
@@ -137,6 +144,7 @@ img {
     margin-bottom: 30px;
     overflow:auto;
     padding: 5px;
+    background-color: white;
    
 }
 
@@ -147,6 +155,7 @@ img {
     margin-bottom: 30px;
     overflow:auto;
     padding: 5px;
+    background-color: white;
    
 }
 
@@ -157,6 +166,7 @@ img {
     margin-bottom: 30px;
     overflow:auto;
     padding: 5px;
+    background-color: white;
 }
 
 .textbox_content{

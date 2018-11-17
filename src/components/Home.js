@@ -45,8 +45,8 @@ class HomePage extends Component {
     const { users } = this.state;
     const { posts } = this.state;
     return (
-      <div>
-        <h1>Home Page</h1>
+      <div className='main'>
+        <div>Home Page</div>
         <div className='user_content'>{ !!users && <UserList users={users} /> }</div>
         <div className='post_content'>{ !!posts && <PostList posts={posts} /> }</div>
       </div>

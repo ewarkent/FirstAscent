@@ -232,6 +232,7 @@ class Form extends Component{
         let errors = this.state.FormErrors;
 
         return (
+            <div className='main'>
             <form name="climb_post" className="form-horizontal" onSubmit={this.handleSubmit}>
                 <div id="climb_post">
                     <div className='climb_info'>
@@ -342,6 +343,7 @@ class Form extends Component{
                     </div>    
                 </div>
             </form>
+            </div>
         );
     }
 
