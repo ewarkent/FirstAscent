@@ -46,46 +46,51 @@ class HomePage extends Component {
     const { posts } = this.state;
     return (
       <div>
-        <h1>Home</h1>
-        <p>The Home Page is accessible by every signed in user.</p>
-
-        { !!users && <UserList users={users} /> }
-        { !!posts && <PostList posts={posts} /> }
+        <h1>Home Page</h1>
+        <div className='user_content'>{ !!users && <UserList users={users} /> }</div>
+        <div className='post_content'>{ !!posts && <PostList posts={posts} /> }</div>
       </div>
     );
   }
 }
 
+
 const UserList = ({ users }) =>
   <div>
-    <h2>List of Usernames of Users</h2>
-    <p>(Saved on Sign Up in Firebase Database)</p>
-
-    {Object.keys(users).map(key =>
-      <div key={key}>{users[key].username}</div>
-    )}
+    <div className='title'>Current Members</div>
+    <div className='userlist'>
+      {Object.keys(users).map(key =>
+        <div key={key}>{users[key].username}</div>
+      )}
+    </div>  
   </div>
+
 
 const PostList = ({ posts }) =>
   <div>
-    <h2>List of Posts</h2>
-    <p>Posts are submitted from the link to form.</p>
+    <div className='title'>List of Posts</div>
+    <div className='how_to_post'>Click on New Post to post a new climb!</div>
 
-    {Object.keys(posts).map(key =>
-      <div key={key}>
-        {posts[key].title} <br />
-        {posts[key].poster} <br />
-        {posts[key].location} <br />
-        {posts[key].GpsCoords} <br />
-        {posts[key].directions} <br />
-        {posts[key].description}  <br />
-        <button>
-          <Link className='postlink' to={routes.POST + '/' + key}>View Post</Link>
-        </button>
-        ----Test print key : {key}
-        <br />
-      </div>
-    )}
+    <div className='postlist'>  
+      {Object.keys(posts).map(key =>
+        <div key={key}>
+          {posts[key].title} <br />
+          {posts[key].poster} <br />
+          {posts[key].location} <br />
+          {/*}
+          {posts[key].GpsCoords} <br />
+          {posts[key].directions} <br />
+          {posts[key].description}  <br />
+      */}
+          <div className='link_button'>-------------------------------
+            <button><Link className='postlink' to={routes.POST + '/' + key}>View Post</Link></button>
+            
+          </div>
+          <br />
+          <br />
+        </div>
+      )}
+    </div>    
   </div>
 
 const authCondition = (authUser) => !!authUser;

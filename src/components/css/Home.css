@@ -1,0 +1,43 @@
+.title{
+    font-weight: bold;
+    font-size: 25px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+/*USER LIST*/
+.user_content{
+    margin: 50px;
+    padding: 10px;
+    float: right;
+    width: 30%;
+    overflow:auto;
+    border: 2px solid black;
+}
+
+.userlist{
+    margin: 10px;
+}
+
+/*POST LIST*/
+.post_content{
+    margin: 50px;
+    padding: 10px;
+    width: 30%;
+    overflow:auto;
+    border: 2px solid black;
+}
+
+.postlist{
+    margin: 10px;
+}
+
+.how_to_post{
+    font-size: 15px;
+    font-style: italic;
+    text-align: center;
+}
+
+.link_button{
+    float:center;
+}
