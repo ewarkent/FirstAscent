@@ -50,7 +50,6 @@ class PostPage extends Component {
 
 const PostDisplay = ({post}) =>
 <div className='postpage'>
-    <h1>Post Page</h1>
 
     <div className='route-climber-names'>
       <div className='route'>{post.title}</div>

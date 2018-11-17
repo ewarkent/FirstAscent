@@ -39,6 +39,12 @@
     background-color: white;
 }
 
+.posts{
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid black;
+}
+
 .postlist{
     margin: 10px;
 }
@@ -50,5 +56,14 @@
 }
 
 .link_button{
-    float:center;
+    text-align:right;
+}
+
+.category{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.db_info{
+    padding-left: 10px;
 }

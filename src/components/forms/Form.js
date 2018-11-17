@@ -233,116 +233,116 @@ class Form extends Component{
 
         return (
             <div className='main'>
-            <form name="climb_post" className="form-horizontal" onSubmit={this.handleSubmit}>
-                <div id="climb_post">
-                    <div className='climb_info'>
-                        <div className="form-group">
-                                <label className="control-label" htmlFor="climb_post_Poster">Climbed By:</label>
-                                <div>
-                                    <input type="text"
-                                        id="poster"
-                                        value={this.state.poster}
-                                        onChange={this.handleChange}
-                                        className="form-control"/>
-                                        <span className="help-block">{errors.poster}</span>
-                                </div>
+                <form name="climb_post" className="form-horizontal" onSubmit={this.handleSubmit}>
+                    <div id="climb_post">
+                        <div className='climb_info'>
+                            <div className="form-group">
+                                    <label className="control-label" htmlFor="climb_post_Poster">Climbed By:</label>
+                                    <div>
+                                        <input type="text"
+                                            id="poster"
+                                            value={this.state.poster}
+                                            onChange={this.handleChange}
+                                            className="form-control"/>
+                                            <span className="help-block">{errors.poster}</span>
+                                    </div>
+                                
+                                    <label className="control-label" htmlFor="climb_post_title">Route Name:</label>
+                                    <div>
+                                        <input type="text"
+                                            id="title"
+                                            value={this.state.title}
+                                            onChange={this.handleChange}
+                                            className="form-control"/>
+                                            <span className="help-block">{errors.title}</span>
+                                    </div>
+                                
+                                    <label className="control-label" htmlFor="climb_post_difficulty">Route Difficulty:</label>
+                                    <div>
+                                        <input type="text"
+                                            id="difficulty"
+                                            value={this.state.difficulty}
+                                            onChange={this.handleChange}
+                                            className="form-control"/>
+                                            <span className="help-block">{errors.difficulty}</span>
+                                    </div>
+                                
+                                    <label className="control-label" htmlFor="climb_post_loca">Location:</label>
+                                    <div>
+                                        <input type="text"
+                                            id="location"
+                                            value={this.state.location}
+                                            onChange={this.handleChange}
+                                            className="form-control"/>
+                                            <span className="help-block">{errors.location}</span>
+                                    </div>
+                                
+                                    <label className="control-label" htmlFor="climb_post_gps">GPS Coordinates:</label>
+                                    <div>
+                                        <input type="text"
+                                            id="GpsCoords"
+                                            value={this.state.GpsCoords}
+                                            onChange={this.handleChange}
+                                            className="form-control"/>
+                                            <span className="help-block">{errors.GpsCoords}</span>
+                                    </div>
+                                
+                                    <label className="control-label" htmlFor="climb_post_direc">Directions:</label>
+                                    <div>
+                                        <textarea   
+                                                cols="50"
+                                                rows="4"
+                                                id="directions"
+                                                className="materialize-textarea"
+                                                value={this.state.directions}
+                                                onChange={this.handleChange}>
+                                        </textarea>
+                                        <span className="help-block">{errors.directions}</span>
+                                    </div>
                             
-                                <label className="control-label" htmlFor="climb_post_title">Route Name:</label>
-                                <div>
-                                    <input type="text"
-                                        id="title"
-                                        value={this.state.title}
-                                        onChange={this.handleChange}
-                                        className="form-control"/>
-                                        <span className="help-block">{errors.title}</span>
-                                </div>
-                            
-                                <label className="control-label" htmlFor="climb_post_difficulty">Route Difficulty:</label>
-                                <div>
-                                    <input type="text"
-                                        id="difficulty"
-                                        value={this.state.difficulty}
-                                        onChange={this.handleChange}
-                                        className="form-control"/>
-                                        <span className="help-block">{errors.difficulty}</span>
-                                </div>
-                            
-                                <label className="control-label" htmlFor="climb_post_loca">Location:</label>
-                                <div>
-                                    <input type="text"
-                                        id="location"
-                                        value={this.state.location}
-                                        onChange={this.handleChange}
-                                        className="form-control"/>
-                                        <span className="help-block">{errors.location}</span>
-                                </div>
-                            
-                                <label className="control-label" htmlFor="climb_post_gps">GPS Coordinates:</label>
-                                <div>
-                                    <input type="text"
-                                        id="GpsCoords"
-                                        value={this.state.GpsCoords}
-                                        onChange={this.handleChange}
-                                        className="form-control"/>
-                                        <span className="help-block">{errors.GpsCoords}</span>
-                                </div>
-                            
-                                <label className="control-label" htmlFor="climb_post_direc">Directions:</label>
-                                <div>
-                                    <textarea   
+                                    <label className="control-label" htmlFor="climb_post_desc">Description:</label>
+                                    <div>
+                                        <textarea   
                                             cols="50"
                                             rows="4"
-                                            id="directions"
+                                            id="description"
                                             className="materialize-textarea"
-                                            value={this.state.directions}
+                                            value={this.state.description}
                                             onChange={this.handleChange}>
-                                    </textarea>
-                                    <span className="help-block">{errors.directions}</span>
-                                </div>
-                        
-                                <label className="control-label" htmlFor="climb_post_desc">Description:</label>
-                                <div>
-                                    <textarea   
-                                        cols="50"
-                                        rows="4"
-                                        id="description"
-                                        className="materialize-textarea"
-                                        value={this.state.description}
-                                        onChange={this.handleChange}>
-                                    </textarea>
-                                    <span className="help-block">{errors.description}</span>
-                                </div>
+                                        </textarea>
+                                        <span className="help-block">{errors.description}</span>
+                                    </div>
 
-                                <label className="control-label" htmlFor="climb_post_image">Image:</label>
-                                {this.state.isUploading && <p>Uploading Image: {this.state.progress}%</p>}
+                                    <label className="control-label" htmlFor="climb_post_image">Image:</label>
+                                    {this.state.isUploading && <p>Uploading Image: {this.state.progress}%</p>}
 
 
-                                <FileUploader
-                                accept="image/*"
-                                name="image"
-                                randomizeFilename
-                                storageRef={firebase.storage().ref("boulderImages")}
-                                onUploadStart={this.handleUploadStart}
-                                onUploadError={this.handleUploadError}
-                                onUploadSuccess={this.handleUploadSuccess}
-                                onProgress={this.handleProgress}
-                                />
-                                
-                                <div>
-                                    <button 
-                                            disabled = {!this.state.formIsValid}
-                                            type="submit"
-                                            id="climb_post_submit"
-                                            className="btn-default btn"
-                                            onClick={this.handleSubmit}>
-                                        Submit
-                                    </button>
-                                </div>
+                                    <FileUploader
+                                    accept="image/*"
+                                    name="image"
+                                    randomizeFilename
+                                    storageRef={firebase.storage().ref("boulderImages")}
+                                    onUploadStart={this.handleUploadStart}
+                                    onUploadError={this.handleUploadError}
+                                    onUploadSuccess={this.handleUploadSuccess}
+                                    onProgress={this.handleProgress}
+                                    />
+                                    
+                                    <div>
+                                        <button 
+                                                disabled = {!this.state.formIsValid}
+                                                type="submit"
+                                                id="climb_post_submit"
+                                                className="btn-default btn"
+                                                onClick={this.handleSubmit}>
+                                            Submit
+                                        </button>
+                                    </div>
 
-                        </div>
-                    </div>    
-                </div>
-            </form>
+                            </div>
+                        </div>    
+                    </div>
+                </form>
             </div>
         );
     }
