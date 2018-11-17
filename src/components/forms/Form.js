@@ -297,7 +297,8 @@ class Form extends Component{
                                                 value={this.state.directions}
                                                 onChange={this.handleChange}>
                                         </textarea>
-                                        <span className="help-block">{errors.directions}</span>
+                                        <br/><span className="help-block">{errors.directions}</span>
+                                        <br/>
                                     </div>
                             
                                     <label className="control-label" htmlFor="climb_post_desc">Description:</label>
@@ -310,10 +311,11 @@ class Form extends Component{
                                             value={this.state.description}
                                             onChange={this.handleChange}>
                                         </textarea>
-                                        <span className="help-block">{errors.description}</span>
+                                        <br/><span className="help-block">{errors.description}</span>
+                                        <br/>
                                     </div>
 
-                                    <label className="control-label" htmlFor="climb_post_image">Image:</label>
+                                    <label className="control-label" htmlFor="climb_post_image">Image: </label>
                                     {this.state.isUploading && <p>Uploading Image: {this.state.progress}%</p>}
 
 
@@ -327,7 +329,7 @@ class Form extends Component{
                                     onUploadSuccess={this.handleUploadSuccess}
                                     onProgress={this.handleProgress}
                                     />
-                                    
+                                    <br/><br/>
                                     <div>
                                         <button 
                                                 disabled = {!this.state.formIsValid}

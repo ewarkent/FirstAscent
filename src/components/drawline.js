@@ -70,6 +70,8 @@ export default class canvas extends React.Component{
             ctx.moveTo(x,y);
             ctx.lineTo(x+1,y+1);
             ctx.stroke();
+            ctx.strokeStyle="red";
+            ctx.lineWidth=3;
         })
     }
     handleMouseMove(event){
@@ -92,6 +94,7 @@ export default class canvas extends React.Component{
         
     }
     
+    //Function to load images into the canvas
     loadimage() {
         //const canvas = ReactDOM.findDOMNode(this.refs.canvas);
         //const ctx = canvas.getContext("2d");
