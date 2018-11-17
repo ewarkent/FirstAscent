@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './css/drawline.css';
 import ladder from './ladder.jpg';
+import humedyno from './humedyno.jpg';
+import pano from './pano.jpg';
 
 import ReactDOM from 'react-dom';
 
@@ -28,7 +30,7 @@ export default class canvas extends React.Component{
             <div className='container'>
                 <div className="canvasdiv">    
                     <canvas id="canvas" ref="canvas" 
-                            width={640}
+                            width={625}
                             height={425}
                             onMouseDown={
                                 e => {
@@ -47,8 +49,8 @@ export default class canvas extends React.Component{
                                 }}
                     />
                 </div>
-                {//<button onClick={ this.saveCanvas }>SAVE IMAGE</button>
-                }
+                <button onClick={this.loadimage}>LOAD IMAGE</button>
+                
             </div>    
         );
     }
@@ -90,19 +92,59 @@ export default class canvas extends React.Component{
         
     }
     
-    componentDidMount() {
+    loadimage() {
         //const canvas = ReactDOM.findDOMNode(this.refs.canvas);
         //const ctx = canvas.getContext("2d");
         //ctx.fillStyle = 'rgb(200,255,255)';
         //ctx.fillRect(0, 0, 625, 425);
-
+        
         var myCanvas = document.getElementById('canvas');
         var ctx = myCanvas.getContext('2d');
-        var img = new Image;
-        img.onload = function(){
-        ctx.drawImage(img,0,0); 
-        };
-        img.src = ladder; //This is where we need to upload the image
+        var img = new Image();
+        
+        //***************************************** */
+        //This is where we need to upload the image
+            //testing different hardcoded pics
+        //img.src = ladder; 
+        img.src = humedyno;
+        //img.src = pano;
+        //****************************************** */
+
+        var imageAspectRatio = img.width / img.height;
+        var canvasAspectRatio = 625 / 425;
+        var renderableHeight, renderableWidth, xStart, yStart;
+
+        // If image's aspect ratio is less than canvas's we fit on height
+        // and place the image centrally along width
+        if(imageAspectRatio < canvasAspectRatio) {
+            renderableHeight = 425;
+            renderableWidth = img.width * (renderableHeight / img.height);
+            xStart = (625 - renderableWidth) / 2;
+            yStart = 0;
+           
+        }
+
+        // If image's aspect ratio is greater than canvas's we fit on width
+        // and place the image centrally along height
+        else if(imageAspectRatio > canvasAspectRatio) {
+            renderableWidth = 625
+            renderableHeight = img.height * (renderableWidth / img.width);
+            xStart = 0;
+            yStart = (425 - renderableHeight) / 2;
+           
+        }
+
+        // Happy path - keep aspect ratio
+        else {
+            renderableHeight = 425;
+            renderableWidth = 625;
+            xStart = 0;
+            yStart = 0;
+            
+        }
+
+        ctx.drawImage(img,xStart,yStart,renderableWidth,renderableHeight); 
+         
     }
 
     
