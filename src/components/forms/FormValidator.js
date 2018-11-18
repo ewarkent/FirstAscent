@@ -1,120 +1,62 @@
-import React, { Component } from 'react';
+import validator from 'validator';
 
-//Failed attempt at abstraction. Just throw everything inside of Form.js
-// Some examples to look at, currently using the first link:
-    // https://github.com/learnetto/react-form-validation-demo
-    // https://github.com/mikeries/react-validation-tutorial
+/**
+ * The following code was provided as a public tutorial in form validation by Michael Ries on Sep 10,2017 
+ * from...
+ *    https://medium.com/code-monkey/client-side-form-validation-in-react-40e367de47ba
+ *    https://github.com/mikeries/react-validation-tutorial
+ * 
+ * The tutorial code was last implemented by our group, First Ascent, on November 17, 2018
+ */
 
-class FormValidator extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            // Let these contain the errors found in the form
-            FormErrors: {
-                poster: '',
-                title: '',
-                difficulty: '',
-                location: '',
-                GpsCoords: '',
-                directions: '',
-                description: '',
-            },
-        
+class FormValidator {
+  constructor(validations) {
+    // validations is an array of validation rules specific to a form
+    this.validations = validations;
+  }
 
-            // Let these validate the content inside Form.js's states
-            posterValid: false,
-            titleValid: false,
-            difficultyValid: false,
-            locationValid: false,
-            GpsCoordsValid: false,
-            directionsValid: false,
-            descriptionValid: false,
+  validate(state) {
+    // start out assuming valid
+    let validation = this.valid();
 
-            formIsValid: false,
+    // for each validation rule
+    this.validations.forEach(rule => {
+
+      // if the field hasn't already been marked invalid by an earlier rule
+      if (!validation[rule.field].isInvalid) {
+        // determine the field value, the method to invoke and optional args from 
+        // the rule definition
+        const field_value = state[rule.field].toString();
+        const args = rule.args || [];
+        const validation_method = 
+              typeof rule.method === 'string' ?
+              validator[rule.method] : 
+              rule.method
+              
+        // call the validation_method with the current field value as the first
+        // argument, any additional arguments, and the whole state as a final
+        // argument.  If the result doesn't match the rule.validWhen property,
+        // then modify the validation object for the field and set the isValid
+        // field to false
+        if(validation_method(field_value, ...args, state) !== rule.validWhen) {
+          validation[rule.field] = { isInvalid: true, message: rule.message }
+          validation.isValid = false;
         }
-    }
+      }
+    });
 
-    validateField(id, value) {
-        let formErrors = this.state.FormErrors;
-        let pV = this.state.posterValid;
-        let tV = this.state.titleValid;
-        let diffV = this.state.difficultyValid;
-        let locV = this.state.locationValid;
-        let gpsV = this.state.GpsCoordsValid;
-        let direcV = this.state.directionsValid;
-        let descV = this.state.descriptionValid;
-    
-        /**
-         * Input regexs here
-         */
-        let regexAny = /[A-Z][a-z]*/;
-    
-        /**
-         * A really shitty way to handle validation using a switch statement
-         *  Not scalable. Need to come up with a generalized way of handling validation.
-         *  
-         */
-        switch(id) {
-            case 'poster':
-                pV = value.match(regexAny);
-                formErrors.poster = pV ? '' : ' is invalid';
-                break;
-            case 'title':
-                tV = value.length >= 1;
-                formErrors.title = tV ? '': ' is too short';
-                break;
-            case 'difficulty':
-                diffV = value.match(regexAny);
-                formErrors.difficulty = diffV? '' : ' is invalid';
-                break;
-            case 'location':
-                locV = value.match(regexAny);
-                formErrors.location = locV ? '' : ' is invalid';
-                break;
-            case 'GpsCoords':
-                gpsV = value.match(regexAny);
-                formErrors.GpsCoords = gpsV ? '' : ' is invalid';
-                break;
-            case 'directions':
-                direcV = value.match(regexAny);
-                formErrors.directions = direcV ? '' : ' is invalid';
-                break;
-            case 'description':
-                descV = value.match(regexAny);
-                formErrors.description = descV ? '' : ' is invalid';
-                break;
-            default:
-                break;
-        }
+    return validation;
+  }
 
-        // Set states to what was discovered.
-            this.setState(
-                {   [this.posterValid]: pV,
-                    [this.titleValid]: tV,
-                    [this.difficultyValid]: diffV,
-                    [this.locationValid]: locV,
-                    [this.GpsCoordsValid]: gpsV,
-                    [this.directionsValid]: direcV,
-                    [this.descriptionValid]: descV,
-                },
-                    
-                this.validateForm)
-        
-    }
+  valid() {
+    const validation = {}
 
-    validateForm() {
-        this.setState({[this.formIsValid]: 
-                                    this.state.emailValid 
-                                &&  this.state.passwordValid
-                                &&  this.state.posterValid
-                                &&  this.state.titleValid
-                                &&  this.state.difficultyValid
-                                &&  this.state.locationValid
-                                &&  this.state.GpsCoordsValid
-                                &&  this.state.directionsValid
-                                &&  this.state.descriptionValid
-                    });
-    }
+    this.validations.map(rule => (
+      validation[rule.field] = { isInvalid: false, message: '' }
+    ));
+
+    return { isValid: true, ...validation };
+  }
 }
 
-export default FormValidator
+export default FormValidator;
