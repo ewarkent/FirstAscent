@@ -7,7 +7,7 @@ class StarRatingCommunity extends React.Component {
         super(props);
  
         this.state = {
-            averageRating: null,
+            averageRating: 0,
         };
     }
     componentWillMount(){
@@ -17,33 +17,39 @@ class StarRatingCommunity extends React.Component {
         var starRef = db.ref('posts/' + postKey + '/stars');
 
         starRef.once('value').then(snapshot=>{
-            let values = Object.values(snapshot.val())
-            let sum = 0;
-            let average = 0;
+            if(snapshot.val() != null){
+                let values = Object.values(snapshot.val())
+                let sum = 0;
+                let average = 0;
 
-            console.log("test " + snapshot.val());
-            console.log(Object.values(snapshot.val()));
-            console.log("object test: " + values[0]);
-            console.log("value in object test: " + values[0].rating);
-            console.log("object length test: " + values.length);
+                console.log("test " + snapshot.val());
+                console.log(Object.values(snapshot.val()));
+                console.log("object test: " + values[0]);
+                console.log("value in object test: " + values[0].rating);
+                console.log("object length test: " + values.length);
 
-            values.forEach(element => {
-                sum += element.rating
-            });
+                values.forEach(element => {
+                    sum += element.rating
+                });
 
-            average = sum / values.length;
+                average = sum / values.length;
 
-            console.log("this is average: " + average);
-            this.setState({
-                averageRating: average
-            })
+                console.log("this is average: " + average);
+                this.setState({
+                    averageRating: average
+                })
+            }
+            
         })
     }
 
 
     render() {
         console.log("average rating");
-        const averageRating = this.state.averageRating;
+        let averageRating = this.state.averageRating;
+        if(averageRating == 0){
+            averageRating = 'No ratings found';
+        }
         console.log("average rating 2:" + averageRating);
         
         return (                
