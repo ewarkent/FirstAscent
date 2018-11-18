@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { db } from '../../firebase/firebase.js';
 import firebase from 'firebase';
-import FormValidator from './FormValidator.js';
+//import FormValidator from './FormValidator.js';
 import FileUploader from "react-firebase-file-uploader"; //in bash: $ npm i react-firebase-file-uploader
+
 
 //import FormRules from './FormRules';
 
@@ -18,6 +19,8 @@ class Form extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
 
         this.state = {
+
+            // basic form information
             poster: '',
             title: '',
             difficulty: '',
@@ -26,11 +29,12 @@ class Form extends Component{
             directions: '',
             description: '',
 
-            
+            // image uploading
             image: '',
             isUploading: false,
             progress: 0,
             imageURL: '',
+
 
             // Let these contain the errors found in the form
             FormErrors: {
@@ -218,7 +222,8 @@ class Form extends Component{
                 directions: this.state.directions,
                 description: this.state.description,
                 image: this.state.image,
-                imageURL: this.state.imageURL
+                imageURL: this.state.imageURL,
+                
             })
 
         }else{
@@ -230,6 +235,7 @@ class Form extends Component{
     render() {
         //<span className="help-block">{validation.description.message}</span>
         let errors = this.state.FormErrors;
+        
 
         return (
             <div className='main'>
@@ -330,6 +336,7 @@ class Form extends Component{
                                     onProgress={this.handleProgress}
                                     />
                                     <br/><br/>
+                                    
                                     <div>
                                         <button 
                                                 disabled = {!this.state.formIsValid}
