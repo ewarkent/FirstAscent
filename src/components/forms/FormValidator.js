@@ -1,5 +1,14 @@
 import validator from 'validator';
 
+/**
+ * The following code was provided as a public tutorial in form validation by Michael Ries on Sep 10,2017 
+ * from...
+ *    https://medium.com/code-monkey/client-side-form-validation-in-react-40e367de47ba
+ *    https://github.com/mikeries/react-validation-tutorial
+ * 
+ * The tutorial code was last implemented by our group, First Ascent, on November 17, 2018
+ */
+
 class FormValidator {
   constructor(validations) {
     // validations is an array of validation rules specific to a form
