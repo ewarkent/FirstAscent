@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
 
 import * as firebase from '../firebase/firebase.js';
-import { DataSnapshot } from '@firebase/database';
-import { db } from '../firebase';
 import GoogleMapsContainer from './Maps';
 import './css/Post.css';
-import StarRating from './StarRatingComponent.js';
-import CommunityRating from './StarRatingCommunity.js';
+import StarRating from './forms/StarRatingComponent.js';
+import CommunityRating from './forms/CommunityRating.js';
 
 
 

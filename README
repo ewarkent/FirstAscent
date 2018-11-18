@@ -4,5 +4,15 @@
 -Session handling handling done. Basics are done unless we decide to use Redux/MobX
 -Basic post form for submission. Can add a post to database. Need to figure out how to view
   in landing page.
+-Google maps addition
+-Star rating addition
+
   
 When continuing check files as you finish up sections to avoid redundant work. 
+
+nmp install....
+      ...some other stuff too, lol
+      ...google maps
+      ...something firebase
+npm install validator
+
