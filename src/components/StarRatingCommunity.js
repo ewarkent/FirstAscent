@@ -7,7 +7,7 @@ class StarRatingCommunity extends React.Component {
         super(props);
  
         this.state = {
-            averageRating: 0,
+            averageRating: null,
         };
     }
     componentWillMount(){
@@ -47,14 +47,14 @@ class StarRatingCommunity extends React.Component {
     render() {
         console.log("average rating");
         let averageRating = this.state.averageRating;
-        if(averageRating == 0){
+        if( averageRating == null ){
             averageRating = 'No ratings found';
         }
         console.log("average rating 2:" + averageRating);
         
         return (                
             <div>
-                <h2>Average rating {averageRating}</h2>
+                <h2>Average rating: {averageRating}</h2>
                 <StarRatingComponent
                     name="rate1" 
                     starCount={10}
