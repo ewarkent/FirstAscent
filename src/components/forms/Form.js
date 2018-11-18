@@ -232,6 +232,7 @@ class Form extends Component{
         }
     }
 
+    
     //poster, title, location, gpscoords, directions, description
     render() {
         //<span className="help-block">{validation.description.message}</span>
@@ -354,6 +355,8 @@ class Form extends Component{
                 </form>
                 <div className='drawing_box'>
                     <Canvas_box className='canvas_div'></Canvas_box>
+                    <div className='upload_preview'>
+                    </div>
                 </div>
             </div>
         );

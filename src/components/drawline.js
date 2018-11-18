@@ -8,10 +8,6 @@ import ReactDOM from 'react-dom';
 
 class Canvas_box extends React.Component{
 
-    saveCanvas() {
-        var dt = Canvas_box.toDataURL('image/jpeg');
-        this.href = dt;
-      }
 
     constructor(props) {
         super(props);
@@ -19,43 +15,22 @@ class Canvas_box extends React.Component{
         this.state={
             isDown: false,
             previousPointX:'',
-            previousPointY:''
+            previousPointY:'',
+            file:null
         }
         this.handleMouseDown = this.handleMouseDown.bind(this);
         this.handleMouseMove = this.handleMouseMove.bind(this);
         this.handleMouseUp = this.handleMouseUp.bind(this);
+        this.handleChange = this.handleChange.bind(this)
     }
-    render() {
-        return (
-            <div className='container'>
-                <div className="canvasdiv">    
-                    <canvas id="canvas" ref="canvas" 
-                            width={625}
-                            height={425}
-                            onMouseDown={
-                                e => {
-                                    let nativeEvent = e.nativeEvent;
-                                    this.handleMouseDown(nativeEvent);
-                                }}
-                            onMouseMove={
-                                e => {
-                                    let nativeEvent = e.nativeEvent;
-                                    this.handleMouseMove(nativeEvent);
-                                }}    
-                            onMouseUp={
-                                e => {
-                                    let nativeEvent = e.nativeEvent;
-                                    this.handleMouseUp(nativeEvent);
-                                }}
-                    />
-                </div>
-                <button className='load_button' onClick={this.loadimage}>LOAD IMAGE</button>
-                
-            </div>    
-        );
-    }
+    
+    handleChange(event) {
+        this.setState({
+          file: URL.createObjectURL(event.target.files[0])
+        })
+      }
 
-    handleMouseDown(event){ 
+      handleMouseDown(event){ 
         console.log(event);    
         this.setState({
             isDown: true,
@@ -104,13 +79,13 @@ class Canvas_box extends React.Component{
         var myCanvas = document.getElementById('canvas');
         var ctx = myCanvas.getContext('2d');
         var img = new Image();
-        
         //***************************************** */
         //This is where we need to upload the image
             //testing different hardcoded pics
         //img.src = ladder; 
-        img.src = humedyno;
+        //img.src = humedyno;
         //img.src = pano;
+        img.src = this.state.file;
         //****************************************** */
 
         var imageAspectRatio = img.width / img.height;
@@ -152,7 +127,41 @@ class Canvas_box extends React.Component{
 
     
     
-}
+
+
+    render() {
+        return (
+            <div className='container'>
+                <div className="canvasdiv">    
+                    <canvas id="canvas" ref="canvas" 
+                            width={625}
+                            height={425}
+                            onMouseDown={
+                                e => {
+                                    let nativeEvent = e.nativeEvent;
+                                    this.handleMouseDown(nativeEvent);
+                                }}
+                            onMouseMove={
+                                e => {
+                                    let nativeEvent = e.nativeEvent;
+                                    this.handleMouseMove(nativeEvent);
+                                }}    
+                            onMouseUp={
+                                e => {
+                                    let nativeEvent = e.nativeEvent;
+                                    this.handleMouseUp(nativeEvent);
+                                }}
+                    />
+                </div>
+                <button className='load_button' onClick={this.loadimage.bind(this)}>LOAD IMAGE</button>
+                <input type="file" onChange={this.handleChange}/>
+                {//<img src={this.state.file}/>
+                }
+            </div>    
+        );
+    }
+
+}   
 
 export default Canvas_box
 
