@@ -4,6 +4,7 @@ import firebase from 'firebase';
 //import FormValidator from './FormValidator.js';
 import FileUploader from "react-firebase-file-uploader"; //in bash: $ npm i react-firebase-file-uploader
 
+import Canvas_box from '../drawline.js';
 
 //import FormRules from './FormRules';
 
@@ -240,7 +241,7 @@ class Form extends Component{
         return (
             <div className='main'>
                 <form name="climb_post" className="form-horizontal" onSubmit={this.handleSubmit}>
-                    <div id="climb_post">
+                    <div id="climb_post_box">
                         <div className='climb_info'>
                             <div className="form-group">
                                     <label className="control-label" htmlFor="climb_post_Poster">Climbed By:</label>
@@ -347,11 +348,13 @@ class Form extends Component{
                                             Submit
                                         </button>
                                     </div>
-
                             </div>
                         </div>    
                     </div>
                 </form>
+                <div className='drawing_box'>
+                    <Canvas_box className='canvas_div'></Canvas_box>
+                </div>
             </div>
         );
     }

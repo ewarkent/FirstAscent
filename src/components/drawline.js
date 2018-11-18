@@ -6,10 +6,10 @@ import pano from './pano.jpg';
 
 import ReactDOM from 'react-dom';
 
-export default class canvas extends React.Component{
+class Canvas_box extends React.Component{
 
     saveCanvas() {
-        var dt = canvas.toDataURL('image/jpeg');
+        var dt = Canvas_box.toDataURL('image/jpeg');
         this.href = dt;
       }
 
@@ -49,7 +49,7 @@ export default class canvas extends React.Component{
                                 }}
                     />
                 </div>
-                <button onClick={this.loadimage}>LOAD IMAGE</button>
+                <button className='load_button' onClick={this.loadimage}>LOAD IMAGE</button>
                 
             </div>    
         );
@@ -154,7 +154,7 @@ export default class canvas extends React.Component{
     
 }
 
-
+export default Canvas_box
 
 
 
