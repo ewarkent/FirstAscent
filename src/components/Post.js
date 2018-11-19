@@ -47,6 +47,7 @@ class PostPage extends Component {
   }
 }
 
+
 const PostDisplay = ({post}) =>
 <div className='postpage'>
 

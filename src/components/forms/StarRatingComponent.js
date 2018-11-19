@@ -58,6 +58,7 @@ class StarRating extends React.Component {
         })
         alert("Rating submission posted to database with value: "
             + nextValue);
+        window.location.reload();
     }
  
     render() {

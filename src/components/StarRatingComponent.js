@@ -10,7 +10,8 @@ class StarRating extends React.Component {
             rating: 0
         };
     }
- 
+    
+
     onStarClick(nextValue, prevValue, name) {
         console.log('name: %s, nextValue: %s, prevValue: %s', name, nextValue, prevValue);
         var postKey = window.location.pathname.replace('/post/','');
@@ -24,7 +25,7 @@ class StarRating extends React.Component {
         alert("Rating submission posted to database with value: "
             + nextValue);
     }
- 
+    
     render() {
         const { rating } = this.state;
         

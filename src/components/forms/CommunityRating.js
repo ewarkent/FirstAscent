@@ -81,6 +81,7 @@ class CommunityRating extends React.Component {
             comdiffRef.push({
                 comdiff: this.state.enteredVRating,
             })
+            window.location.reload();
         }
     }
  
