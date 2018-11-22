@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { db } from '../../firebase/firebase.js';
 import firebase from 'firebase';
-//import FormValidator from './FormValidator.js';
+import FormValidator from './FormValidator';
 import FileUploader from "react-firebase-file-uploader"; //in bash: $ npm i react-firebase-file-uploader
 
 import Canvas_box from '../drawline.js';
-
-//import FormRules from './FormRules';
 
 import '../css/Form.css';
 
@@ -18,6 +16,58 @@ class Form extends Component{
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
+        this.validator = new FormValidator([
+            {
+                field: 'poster',
+                method: 'isEmpty',
+                validWhen: false,
+                message: 'Field is empty!'
+            },
+            {
+                field: 'title',
+                method: 'isEmpty',
+                validWhen: false,
+                message: 'Field is empty!'
+            },{
+                field: 'difficulty',
+                method: 'isEmpty',
+                validWhen: false,
+                message: 'Field is empty!'
+            },
+            {
+                field: 'location',
+                method: 'isEmpty',
+                validWhen: false,
+                message: 'Field is empty!'
+            },
+            {
+                field: 'GpsCoords',
+                method: 'isEmpty',
+                validWhen: false,
+                message: 'Field is empty!'
+            },
+            {
+                field: 'directions',
+                method: 'isEmpty',
+                validWhen: false,
+                message: 'Field is empty!'
+            },
+            {
+                field: 'description',
+                method: 'isEmpty',
+                validWhen: false,
+                message: 'Field is empty!'
+            },
+            {
+                field: 'description',
+                method: 'isLength',
+                args: [10,5000],
+                validWhen: true,
+                message: 'Must be greater than or equal to 10 characters'
+            },
+            
+        ])
 
         this.state = {
 
@@ -35,33 +85,13 @@ class Form extends Component{
             isUploading: false,
             progress: 0,
             imageURL: '',
-
-
-            // Let these contain the errors found in the form
-            FormErrors: {
-                poster: 'Field is empty!',
-                title: 'Field is empty!',
-                difficulty: 'Field is empty!',
-                location: 'Field is empty!',
-                GpsCoords: 'Field is empty!',
-                directions: 'Field is empty!',
-                description: 'Field is empty!',
-                image: 'Choose an image!',     
-            },
-
-            // Let these validate the content inside Form.js's states
-            posterValid: false,
-            titleValid: false,
-            difficultyValid: false,
-            locationValid: false,
-            GpsCoordsValid: false,
-            directionsValid: false,
-            descriptionValid: false,
-            imageValid: false, //
-
-            formIsValid: false,
             
+            // form validation
+            validation: this.validator.valid(),
+           
         }
+
+        this.submitted = false;
 
     }
 
@@ -70,112 +100,12 @@ class Form extends Component{
     handleChange = (e) =>{
         e.preventDefault();
 
-        const id = e.target.id;
-        const value = e.target.value;
-
         this.setState(
-            { [id]: value, },
-            () => { this.validateField(id, value) },
+            { [e.target.id]: e.target.value, },
         );
     }
 
-    validateField(id, value) {
-        let formErrors = this.state.FormErrors;
-        let pV = this.state.posterValid;
-        
-        let tV = this.state.titleValid;
-        let diffV = this.state.difficultyValid;
-        let locV = this.state.locationValid;
-        let gpsV = this.state.GpsCoordsValid;
-        let direcV = this.state.directionsValid;
-        let descV = this.state.descriptionValid;
     
-        /**
-         * Input regexs here
-         */
-        let regexAny = /.+/;
-        let isEmpty = 'Field is empty!';
-    
-        /**
-         * A really shitty way to handle validation using a switch statement
-         *  Not scalable. Need to come up with a generalized way of handling validation.
-         *  
-         */
-        switch(id) {
-            case 'poster':
-                pV = regexAny.test(value)
-                console.log("pv is now: " + pV);
-                formErrors.poster = pV ? '' : isEmpty;
-                break;
-            case 'title':
-                tV = value.length >= 2;
-                formErrors.title = tV ? '': ' is too short';
-                break;
-            case 'difficulty':
-                diffV = regexAny.test(value)
-                formErrors.difficulty = diffV? '' : isEmpty;
-                break;
-            case 'location':
-                locV = regexAny.test(value)
-                formErrors.location = locV ? '' : isEmpty;
-                break;
-            case 'GpsCoords':
-                gpsV = regexAny.test(value)
-                formErrors.GpsCoords = gpsV ? '' : isEmpty;
-                break;
-            case 'directions':
-                direcV = regexAny.test(value)
-                formErrors.directions = direcV ? '' : isEmpty;
-                break;
-            case 'description':
-                descV = regexAny.test(value)
-                formErrors.description = descV ? '' : isEmpty;
-                break;
-            //add case for image.
-            default:
-                break;
-        }
-
-        // Do not use the format this.state.boolean : boolean
-        //  It will result in the state remanining in its default value.
-        this.setState(
-            { 
-                FormErorrs: formErrors,
-                posterValid: pV,
-                titleValid: tV,
-                difficultyValid: diffV,
-                locationValid: locV,
-                GpsCoordsValid: gpsV,
-                directionsValid: direcV,
-                descriptionValid: descV,
-            
-            },
-            
-        );
-
-        //console.log("States of validityA: " +  this.state.posterValid +  this.state.titleValid);
-        //console.log("States of validityB: " +  pV + tV);
-
-            this.validateForm();
-        
-    }
-
-    // Do not use the form [this.state.formIsValid]
-    //  It will result in the state remaining in its default value
-    validateForm() {
-        this.setState({
-            formIsValid:  
-                                    this.state.posterValid
-                                &&  this.state.titleValid
-                                &&  this.state.difficultyValid
-                                &&  this.state.locationValid
-                                &&  this.state.GpsCoordsValid
-                                &&  this.state.directionsValid
-                                &&  this.state.descriptionValid 
-                    });
-                    
-        //console.log("This form is currently: " + this.state.formIsValid);
-    }
 
     handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
 
@@ -202,7 +132,11 @@ class Form extends Component{
         // prevent default, use firebase to store posts
         e.preventDefault();
 
-        if(this.state.formIsValid){
+        const validation = this.validator.validate(this.state);
+        this.setState({ validation });
+        this.submitted = true;
+
+        if(validation.isValid){
             alert("Submission was pressed with the following attributes:\n"
                 + "Poster: " + this.state.poster + "\n" 
                 + "Title: " + this.state.title + "\n"
@@ -226,9 +160,6 @@ class Form extends Component{
                 imageURL: this.state.imageURL,
                 
             })
-            
-        }else{
-            
         }
     }
 
@@ -236,8 +167,9 @@ class Form extends Component{
     //poster, title, location, gpscoords, directions, description
     render() {
         //<span className="help-block">{validation.description.message}</span>
-        let errors = this.state.FormErrors;
-        
+        let validation = this.submitted ?                         // if the form has been submitted at least once
+                      this.validator.validate(this.state) :   // then check validity every time we render
+                      this.state.validation                   // otherwise just use what's in state
 
         return (
             <div className='main'>
@@ -245,6 +177,7 @@ class Form extends Component{
                     <div id="climb_post_box">
                         <div className='climb_info'>
                             <div className="form-group">
+                                <div className={validation.poster.isInvalid && 'has-error'}>
                                     <label className="control-label" htmlFor="climb_post_Poster">Climbed By:</label>
                                     <div>
                                         <input type="text"
@@ -252,9 +185,11 @@ class Form extends Component{
                                             value={this.state.poster}
                                             onChange={this.handleChange}
                                             className="form-control"/>
-                                            <span className="help-block">{errors.poster}</span>
                                     </div>
-                                
+                                    <span className="help-block">{validation.poster.message}</span>
+                                </div>
+                                    
+                                <div className={validation.title.isInvalid && 'has-error'}>
                                     <label className="control-label" htmlFor="climb_post_title">Route Name:</label>
                                     <div>
                                         <input type="text"
@@ -262,9 +197,11 @@ class Form extends Component{
                                             value={this.state.title}
                                             onChange={this.handleChange}
                                             className="form-control"/>
-                                            <span className="help-block">{errors.title}</span>
                                     </div>
-                                
+                                    <span className="help-block">{validation.title.message}</span>
+                                </div>
+                                    
+                                <div className={validation.difficulty.isInvalid && 'has-error'}>
                                     <label className="control-label" htmlFor="climb_post_difficulty">Route Difficulty:</label>
                                     <div>
                                         <input type="text"
@@ -272,9 +209,12 @@ class Form extends Component{
                                             value={this.state.difficulty}
                                             onChange={this.handleChange}
                                             className="form-control"/>
-                                            <span className="help-block">{errors.difficulty}</span>
+                                            
                                     </div>
-                                
+                                    <span className="help-block">{validation.difficulty.message}</span>
+                                </div>
+                                    
+                                <div className={validation.location.isInvalid && 'has-error'}>
                                     <label className="control-label" htmlFor="climb_post_loca">Location:</label>
                                     <div>
                                         <input type="text"
@@ -282,9 +222,12 @@ class Form extends Component{
                                             value={this.state.location}
                                             onChange={this.handleChange}
                                             className="form-control"/>
-                                            <span className="help-block">{errors.location}</span>
+                                            
                                     </div>
-                                
+                                    <span className="help-block">{validation.location.message}</span>
+                                </div>
+                                    
+                                <div className={validation.GpsCoords.isInvalid && 'has-error'}>
                                     <label className="control-label" htmlFor="climb_post_gps">GPS Coordinates:</label>
                                     <div>
                                         <input type="text"
@@ -292,9 +235,12 @@ class Form extends Component{
                                             value={this.state.GpsCoords}
                                             onChange={this.handleChange}
                                             className="form-control"/>
-                                            <span className="help-block">{errors.GpsCoords}</span>
                                     </div>
-                                
+                                    <span className="help-block">{validation.GpsCoords.message}</span>
+                                    <br/>
+                                </div>
+                                    
+                                <div className={validation.directions.isInvalid && 'has-error'}>
                                     <label className="control-label" htmlFor="climb_post_direc">Directions:</label>
                                     <div>
                                         <textarea   
@@ -305,10 +251,12 @@ class Form extends Component{
                                                 value={this.state.directions}
                                                 onChange={this.handleChange}>
                                         </textarea>
-                                        <br/><span className="help-block">{errors.directions}</span>
+                                        <br/><span className="help-block">{validation.directions.message}</span>
                                         <br/>
                                     </div>
-                            
+                                </div>
+                                    
+                                <div className={validation.description.isInvalid && 'has-error'}>
                                     <label className="control-label" htmlFor="climb_post_desc">Description:</label>
                                     <div>
                                         <textarea   
@@ -319,9 +267,11 @@ class Form extends Component{
                                             value={this.state.description}
                                             onChange={this.handleChange}>
                                         </textarea>
-                                        <br/><span className="help-block">{errors.description}</span>
+                                        <br/><span className="help-block">{validation.description.message}</span>
                                         <br/>
                                     </div>
+                                </div>
+                                    
 
                                     <label className="control-label" htmlFor="climb_post_image">Image: </label>
                                     {this.state.isUploading && <p>Uploading Image: {this.state.progress}%</p>}
@@ -341,7 +291,6 @@ class Form extends Component{
                                     
                                     <div>
                                         <button 
-                                                disabled = {!this.state.formIsValid}
                                                 type="submit"
                                                 id="climb_post_submit"
                                                 className="btn-default btn"
