@@ -3,7 +3,7 @@ import { db } from '../../firebase/firebase.js';
 import firebase from 'firebase';
 import FormValidator from './FormValidator';
 import FileUploader from "react-firebase-file-uploader"; //in bash: $ npm i react-firebase-file-uploader
-
+import * as routes from '../../constants/routes';
 import Canvas_box from '../drawline.js';
 
 import '../css/Form.css';
@@ -160,6 +160,7 @@ class Form extends Component{
                 imageURL: this.state.imageURL,
                 
             })
+            window.location = '/';
         }
     }
 

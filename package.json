@@ -6,6 +6,7 @@
     "firebase": "^5.5.6",
     "google-maps-react": "^2.0.2",
     "react": "^16.5.2",
+    "react-commentbox": "^3.0.1",
     "react-dom": "^16.5.2",
     "react-firebase-file-uploader": "^2.4.2",
     "react-redux": "^5.1.0",
