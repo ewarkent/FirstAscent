@@ -12,6 +12,12 @@ class CommentForm extends Component{
 
         this.validator = new FormValidator([
             {
+                field: 'poster',
+                method: 'isEmpty',
+                validWhen: false,
+                message: 'Field is empty'
+            },
+            {
                 field: 'comment',
                 method: 'isEmpty',
                 validWhen: false,
@@ -29,6 +35,7 @@ class CommentForm extends Component{
 
         this.state = {
             // content of comment submitted
+            poster: '',
             comment: '',
 
             // form validation
@@ -62,6 +69,7 @@ class CommentForm extends Component{
             //  + this.state.comment + "\n");
         
             db.ref('posts/' + postKey + "/comments").push({
+                poster: this.state.poster,
                 comment: this.state.comment,
             })
 
@@ -79,6 +87,16 @@ class CommentForm extends Component{
         return(
             <div className="main">
                 <form name="comment_form" onsubmit={this.handleSubmit}>
+                    <div className='comment_poster'>
+                        <div>
+                            <input type="text"
+                                id="poster"
+                                value={this.state.poster}
+                                onChange={this.handleChange}
+                                className="form-control"/>
+                            </div>
+                        <span className="help-block">{validation.poster.message}</span>
+                        </div>
                     <div className={validation.comment.isInvalid && 'has-error'}>                                    
                         <textarea   
                             cols="75"
