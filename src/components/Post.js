@@ -112,9 +112,9 @@ const CommentsDisplay = ({comments}) =>
                         <div className='comment_text' key={key}>
                             - {comments[key].comment}
                             <br/>
-                            by: {comments[key].poster}
+                            <span className='comment_author'>~* {comments[key].poster} *~</span>
                             <br/>
-                            <br/>
+                            
                         </div>    
                     )}
                 </div>

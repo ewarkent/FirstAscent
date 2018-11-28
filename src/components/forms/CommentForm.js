@@ -91,6 +91,7 @@ class CommentForm extends Component{
                         <div>
                             <input type="text"
                                 id="poster"
+                                placeholder='Enter Display Name'
                                 value={this.state.poster}
                                 onChange={this.handleChange}
                                 className="form-control"/>
