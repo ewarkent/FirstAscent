@@ -103,7 +103,7 @@ class CommentForm extends Component{
                             cols="75"
                             rows="5"
                             id="comment"
-                            className="materialize-textarea"
+                            className="materialize-textarea-comments"
                             placeholder='Enter New Comment Here!'
                             value={this.state.directions}
                             onChange={this.handleChange}>

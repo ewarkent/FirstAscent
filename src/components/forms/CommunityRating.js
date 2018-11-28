@@ -75,12 +75,13 @@ class CommunityRating extends React.Component {
             var postKey = window.location.pathname.replace('/post/','');
             var comdiffRef = db.ref('posts/' + postKey + '/comdiff');
         
-            alert("Community Rating submitted: "
-                + this.state.enteredVRating);
+            //alert("Community Rating submitted: "
+                //+ this.state.enteredVRating);
         
             comdiffRef.push({
                 comdiff: this.state.enteredVRating,
             })
+            alert("Thanks For The Feedback! Press OK To Continue");
             window.location.reload();
         }
     }

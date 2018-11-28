@@ -137,6 +137,7 @@ class Form extends Component{
         this.submitted = true;
 
         if(validation.isValid){
+            /*
             alert("Submission was pressed with the following attributes:\n"
                 + "Poster: " + this.state.poster + "\n" 
                 + "Title: " + this.state.title + "\n"
@@ -147,7 +148,9 @@ class Form extends Component{
                 + "Description: " + this.state.description + "\n"
                 + "Image: " + this.state.image + "\n"
                 + "ImageURL: " + this.state.imageURL + "\n");
-        
+            */
+            alert("Post Created! Press OK To Continue")
+
              db.ref('posts').push({
                 poster: this.state.poster,
                 title: this.state.title,

@@ -68,8 +68,8 @@ const UserList = ({ users }) =>
 
 const PostList = ({ posts }) =>
   <div>
-    <div className='title'>List of Posts</div>
-    <div className='how_to_post'>Click on New Post to post a new climb!</div>
+    <div className='title'>List of Climbs</div>
+    <div className='how_to_post'>Click on New Climb to post a new climb!</div>
 
     <div className='postlist'>  
       {Object.keys(posts).map(key =>

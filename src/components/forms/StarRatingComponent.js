@@ -56,8 +56,10 @@ class StarRating extends React.Component {
         db.ref('posts/' + postKey + '/stars').push({
             rating: nextValue,
         })
-        alert("Rating submission posted to database with value: "
-            + nextValue);
+        //alert("Rating submission posted to database with value: "
+          //  + nextValue);
+        alert("Thanks For The Rating! Press OK To Continue");
+            window.location.reload();
     }
  
     render() {
@@ -70,7 +72,7 @@ class StarRating extends React.Component {
     
         return (                
             <div>
-                <h2>Rate this post!</h2>
+                <h3>Rate This Climb!</h3>
                 <StarRatingComponent
                     name="rate1" 
                     starCount={5}

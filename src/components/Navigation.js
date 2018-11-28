@@ -43,7 +43,7 @@ const NavigationAuth = () =>
              } 
              <Link className='homelink' to={routes.HOME}>Home</Link>
              <Link className='accountlink' to={routes.ACCOUNT}>Account</Link>
-             <Link className='formlink' to={routes.FORM}>New Post</Link>
+             <Link className='formlink' to={routes.FORM}>New Climb</Link>
              {/*}
              <Link className='drawlinelink' to={routes.DRAWLINE}>DrawLines</Link>
             */}
