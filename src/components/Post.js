@@ -55,7 +55,7 @@ class PostPage extends Component {
             <div>
                 {!!post && <PostDisplay post={post}/> }
                 {!!comments && <CommentsDisplay comments = {comments}/>}
-                {<CommentSubmit/>};
+                {<CommentSubmit/>}
             </div>
         );
     }
@@ -102,12 +102,13 @@ const PostDisplay = ({post}) =>
     </div>
 
 const CommentsDisplay = ({comments}) =>
-    <div className='text-boxes'>
-        <div className='comments'>Comments:
+    <div className='comment_box'>
+        <div className='comments'>
+        <div className='comment_title'>Comments</div>
             <div className='textbox_content'> 
                 <div className='commentlist'>
                     {Object.keys(comments).map(key =>
-                        <div key={key}>
+                        <div className='comment_text' key={key}>
                             - {comments[key].comment}
                             <br/>
                             <br/>
