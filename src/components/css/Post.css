@@ -149,6 +149,11 @@ img {
    
 }
 
+.underline_titles {
+    text-decoration: underline;
+    font-size:25px;
+}
+
 .location {
     width: 95%;
     border: 2px solid black;
@@ -204,16 +209,17 @@ img {
     border: 2px solid black;
     display: inline-block;
     text-decoration: underline;
-    padding: 5px;
+    padding: 8px;
     text-align: center;
     margin-left: 44%;
+    font-size: 25px;
 }
 
 .comment_text {
     overflow-wrap: break-word;
     border: 2px solid black;
     margin-bottom: 15px;
-    padding: 3px;
+    padding: 8px;
     background-color:white;
 }
 

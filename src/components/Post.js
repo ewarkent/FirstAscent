@@ -79,32 +79,33 @@ const PostDisplay = ({post}) =>
     
 
         <div className='diff-star-comm_diff'>
-            <div className='diff'>Difficulty: 
+            <div className='diff'><span className='underline_titles'>Difficulty</span> 
                 <div className='dsc_content'>{post.difficulty}</div>
             </div>
-            <div className='star'>Star Rating:
+            <div className='star'><span className='underline_titles'>Star Rating</span>
                 <div className='dsc_content'><StarRating/></div>
             </div>
-            <div className='comm_diff'>Community Difficulty:
+            <div className='comm_diff'><span className='underline_titles'>Community Difficulty</span>
                 <div className='dsc_content'><CommunityRating/></div>
             </div>
         </div>
 
         <div className='text-boxes'>
-            <div className='description'>Description: 
+            <div className='description'><span className='underline_titles'>Description</span> 
                 <div className='textbox_content'>- {post.description}</div>
             </div>
-            <div className='location'>Location / Directions: 
+            <div className='location'><span className='underline_titles'>Location / Directions</span> 
                 <div className='textbox_content'>- {post.location}</div>
                 <div className='textbox_content'>- {post.directions}</div>
             </div>
         </div>
+        <div className='comment_title'>Comments</div>
     </div>
 
 const CommentsDisplay = ({comments}) =>
     <div className='comment_box'>
         <div className='comments'>
-        <div className='comment_title'>Comments</div>
+        
             <div className='textbox_content'> 
                 <div className='commentlist'>
                     {Object.keys(comments).map(key =>
