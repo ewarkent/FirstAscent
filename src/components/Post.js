@@ -110,6 +110,8 @@ const CommentsDisplay = ({comments}) =>
                         <div key={key}>
                             - {comments[key].comment}
                             <br/>
+                            by: {comments[key].poster}
+                            <br/>
                             <br/>
                         </div>    
                     )}
