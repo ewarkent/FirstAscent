@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { db } from '../../firebase/firebase.js';
 import firebase from 'firebase';
 import FormValidator from './FormValidator';
+import '../css/CommentForm.css'
 
 class CommentForm extends Component{
     constructor(props){
@@ -84,6 +85,7 @@ class CommentForm extends Component{
                             rows="5"
                             id="comment"
                             className="materialize-textarea"
+                            placeholder='Enter New Comment Here!'
                             value={this.state.directions}
                             onChange={this.handleChange}>
                         </textarea>

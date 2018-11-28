@@ -194,7 +194,6 @@ img {
     /*border: 2px solid black;
     */
     font-size: 25px;
-    margin-bottom: 30px;
     overflow:auto;
     padding: 5px;
     background-color: transparent;
@@ -212,11 +211,39 @@ img {
 
 .comment_text {
     overflow-wrap: break-word;
-    border: 1px solid black;
-    margin-bottom: 10px;
+    border: 2px solid black;
+    margin-bottom: 15px;
     padding: 3px;
     background-color:white;
 }
 
 /* Submit Comments */
 
+.new_comment_box {
+    background-image: url("yosemite.jpg");
+    background-size:     cover;                      
+    background-repeat:   no-repeat;
+    background-position: center top;
+    background-attachment: fixed;
+    padding-left:20px;
+}
+
+.new_comment_wrapper {
+    background-color: transparent;
+}
+/*
+.new_comment_title {
+    background-color:white;
+    border: 2px solid black;
+    display: inline-block;
+    text-decoration: underline;
+    padding: 5px;
+    text-align: center;
+    margin-left: 39%;
+}
+*/
+
+.comment_textarea {
+    padding: 3px;
+    padding-left: 20px;
+}

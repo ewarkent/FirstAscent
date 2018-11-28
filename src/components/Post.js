@@ -120,13 +120,15 @@ const CommentsDisplay = ({comments}) =>
     </div>
     
 const CommentSubmit = () =>
-    <div className="usertext-edit md-container" >
-        <div className='markdownEditor-wrapper'>
-            <div className='comment-hint'>
+    <div className="new_comment_box" >
+        <div className='new_comment_wrapper'>
+        {/*
+            <div className='new_comment_title'>
                 Submit your own comment!
             </div>
+        */}
         </div>
-        <div className='md'>
+        <div className='comment_textarea'>
             <div><CommentForm/></div>
         </div>
     </div>
