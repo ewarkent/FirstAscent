@@ -6,12 +6,23 @@
   in landing page.
 -Google maps addition
 -Star rating addition
+-Image submittion, viewing, and line drawing feature
+-basic comments viewing and submitting
 
   
 When continuing check files as you finish up sections to avoid redundant work. 
 
+installation guide:
+    nmp install....
+        ...google maps
+        ...something firebase
+        ...some other stuff too, lol
+    npm install validator
+
+
+
 ## Important
-Do not add tracking back to firebase.js; was untracked to prevent scraping of firebase keys. If necessary, input keys manually and/or ask Scott for them. 
+Do not add tracking back to firebase.js; was untracked to prevent scraping of firebase keys. If necessary, input keys manually and/or ask a member for them. 
 
 ## Credits
  Thank you to our TA, Dylan Rothfeld, for providing our group with help in setting up our React application.
