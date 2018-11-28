@@ -63,10 +63,9 @@ class CommentForm extends Component{
             db.ref('posts/' + postKey + "/comments").push({
                 comment: this.state.comment,
             })
-        }
 
-        window.location.reload();
-        
+            window.location.reload();
+        }
     }
 
     render(){
