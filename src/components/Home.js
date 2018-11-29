@@ -46,9 +46,8 @@ class HomePage extends Component {
     const { posts } = this.state;
     return (
       <div className='main'>
-        <div>.</div>
-        <div className='user_content'>{ !!users && <UserList users={users} /> }</div>
         <div className='post_content'>{ !!posts && <PostList posts={posts} /> }</div>
+        <div className='user_content'>{ !!users && <UserList users={users} /> }</div>
       </div>
     );
   }
@@ -57,7 +56,7 @@ class HomePage extends Component {
 
 const UserList = ({ users }) =>
   <div>
-    <div className='title'>Current Members</div>
+    <div className='userlist_title'>Current Members</div>
     <div className='userlist'>
       {Object.keys(users).map(key =>
         <div key={key}>- {users[key].username}</div>
@@ -68,9 +67,10 @@ const UserList = ({ users }) =>
 
 const PostList = ({ posts }) =>
   <div>
-    <div className='title'>List of Climbs</div>
-    <div className='how_to_post'>Click on New Climb to post a new climb!</div>
-
+    <div className='title_box'>
+      <div className='title'>List of Climbs</div>
+      <div className='how_to_post'>Click on New Climb to post a new climb!</div>
+    </div>
     <div className='postlist'>  
       {Object.keys(posts).map(key =>
         <div key={key}>
@@ -84,7 +84,7 @@ const PostList = ({ posts }) =>
             {posts[key].description}  <br />
             */}
             <div className='link_button'>
-              <button><Link className='postlink' to={routes.POST + '/' + key}>View Post</Link></button> 
+              <button><Link className='postlink' to={routes.POST + '/' + key}>See More!</Link></button> 
             </div>
           </div>  
         </div>

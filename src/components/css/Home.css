@@ -18,32 +18,49 @@
 /*USER LIST*/
 .user_content{
     margin: 50px;
+    margin-top: 5px;
     padding: 10px;
-    
-    width: 30%;
+    width: 20%;
+    margin-left: 11.5%;
     overflow:auto;
+    background-color: transparent;
+}
+
+.userlist_title{
+    font-weight: bold;
+    font-size: 25px;
+    text-decoration: underline;
+    text-align: center;
+    background-color:white;
     border: 2px solid black;
-    background-color: white;
 }
 
 .userlist{
     margin: 10px;
+    background-color:white;
+    border: 2px solid black;
 }
 
 /*POST LIST*/
+.title_box{
+    background-color:white;
+    border: 2px solid black;
+}
+
 .post_content{
     margin: 50px;
+    margin-bottom:5px;
     padding: 10px;
-    width: 30%;
+    width: 35%;
     overflow:auto;
-    border: 2px solid black;
-    background-color: white;
+    background-color: transparent;
 }
 
 .posts{
     margin: 10px;
     padding: 10px;
     border: 2px solid black;
+    background-color:white;
 }
 
 .postlist{
