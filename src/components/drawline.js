@@ -159,7 +159,7 @@ class Canvas_box extends React.Component{
                         <button className='load_button' onClick={this.loadimage.bind(this)}>Load Image</button>
                         (Press 2x)
                     </span>    
-                    <div>1) Choose Your Picture <br/>2) Draw Lines By Click->Drag->Drop <br/>3) Save Image Locally and Upload Above</div>
+                    <div>1) Choose Your Picture <br/>2) Draw Lines By Click->Drag->Drop <br/>3) Save Image Locally and Upload Below</div>
                 {//<img src={this.state.file}/>
                 }
                 </div>
