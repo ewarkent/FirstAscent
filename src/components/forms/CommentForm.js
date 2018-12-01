@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { db } from '../../firebase/firebase.js';
-import firebase from 'firebase';
 import FormValidator from './FormValidator';
 import '../css/CommentForm.css'
 
@@ -83,7 +82,6 @@ class CommentForm extends Component{
                       this.validator.validate(this.state) :   // then check validity every time we render
                       this.state.validation                   // otherwise just use what's in state
 
-
         return(
             <div className="main">
                 <form name="comment_form" onsubmit={this.handleSubmit}>
@@ -126,6 +124,9 @@ class CommentForm extends Component{
             </div>
         );
     }
+
+    
 }
+
 
 export default CommentForm;

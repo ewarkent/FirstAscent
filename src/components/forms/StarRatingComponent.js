@@ -9,6 +9,7 @@ class StarRating extends React.Component {
  
         this.state = {
             averageRating: null,
+            enteredRating:null,
         };
     }
 
@@ -50,7 +51,7 @@ class StarRating extends React.Component {
         var postKey = window.location.pathname.replace('/post/','');
         
 
-        this.setState({rating: nextValue});
+        this.setState({enteredRating: nextValue});
         
         console.log("Debug: Star rating is.... : " + nextValue);
         db.ref('posts/' + postKey + '/stars').push({
@@ -72,11 +73,17 @@ class StarRating extends React.Component {
     
         return (                
             <div>
-                <h3>Rate This Climb!</h3>
+                <h4>Average rating!</h4>
                 <StarRatingComponent
-                    name="rate1" 
+                    name="averageRating" 
                     starCount={5}
                     value={averageRating}
+                />
+                <h4>Rate This Climb!</h4>
+                <StarRatingComponent
+                    name="enteredRating"
+                    starCount={5}
+                    value={this.state.enteredRating}
                     onStarClick={this.onStarClick.bind(this)}
                 />
             </div>
