@@ -79,11 +79,7 @@ const PostList = ({ posts }) =>
               <div><span className='category'>Difficulty:</span><span className='db_info'>{posts[key].difficulty}</span></div>
               <div><span className='category'>First Ascent:</span><span className='db_info'>{posts[key].poster}</span></div> 
               <div><span className='category'>Location:</span><span className='db_info'>{posts[key].location}</span></div> 
-            {/*}
-            {posts[key].GpsCoords} <br />
-            {posts[key].directions} <br />
-            {posts[key].description}  <br />
-            */}
+            
             <div className='link_button'>
               <button><Link className='postlink' to={routes.POST + '/' + key}>See More!</Link></button> 
             </div>

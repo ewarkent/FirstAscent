@@ -237,7 +237,7 @@ img {
 .new_comment_wrapper {
     background-color: transparent;
 }
-/*
+
 .new_comment_title {
     background-color:white;
     border: 2px solid black;
@@ -245,9 +245,10 @@ img {
     text-decoration: underline;
     padding: 5px;
     text-align: center;
-    margin-left: 39%;
+    margin-left: 1%;
+    font-weight: bold;
 }
-*/
+
 
 .comment_textarea {
     padding: 3px;

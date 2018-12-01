@@ -125,11 +125,11 @@ const CommentsDisplay = ({comments}) =>
 const CommentSubmit = () =>
     <div className="new_comment_box" >
         <div className='new_comment_wrapper'>
-        {/*
+        
             <div className='new_comment_title'>
                 Submit your own comment!
             </div>
-        */}
+        
         </div>
         <div className='comment_textarea'>
             <div><CommentForm/></div>
