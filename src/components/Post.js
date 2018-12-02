@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import * as firebase from '../firebase/firebase.js';
-import GoogleMapsContainer from './Maps';
+import PostMap from './PostMap';
 import './css/Post.css';
 import StarRating from './forms/StarRatingComponent.js';
 import CommunityRating from './forms/CommunityRating.js';
@@ -60,7 +60,7 @@ const PostDisplay = ({post}) =>
       <div className='pic'>
         {post.imageURL && <img src={post.imageURL}/>}
       </div>
-      <div className='map'><GoogleMapsContainer/></div>
+      <div className='map'><PostMap title={post.title} GpsCoords={post.GpsCoords}/></div>
     </div>
     
 

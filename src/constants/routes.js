@@ -6,5 +6,5 @@ export const ACCOUNT = '/account';
 export const PASSWORD_FORGET = '/pw-forget';
 export const FORM = '/forms';
 export const POST = '/post';
-export const MAPS = '/map';
+export const POSTMAP = '/postmap';
 export const DRAWLINE = '/drawline';

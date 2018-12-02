@@ -1,25 +1,26 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
 import * as keys from '../constants/keys';
 
-/**
- * Google maps component 
- * 
- * 
- */
-
-class GoogleMapsContainer extends React.Component {
+class PostMap extends Component {
+  static defaultProps = {
+    title: 'Cool Mountain',
+    GpsCoords: { lat: 37.746495, lng: -119.533156 }
+  }
   constructor(props) {
     super(props);
+
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {}
     }
+
     // binding this to event-handler functions
     this.onMarkerClick = this.onMarkerClick.bind(this);
     this.onMapClick = this.onMapClick.bind(this);
   }
+
   onMarkerClick = (props, marker, e) => {
     this.setState({
       selectedPlace: props,
@@ -27,6 +28,7 @@ class GoogleMapsContainer extends React.Component {
       showingInfoWindow: true
     });
   }
+
   onMapClick = (props) => {
     if (this.state.showingInfoWindow) {
       this.setState({
@@ -35,6 +37,7 @@ class GoogleMapsContainer extends React.Component {
       });
     }
   }
+  
   render() {
     const style = {
       width: '50vw',
@@ -54,15 +57,15 @@ class GoogleMapsContainer extends React.Component {
       >
         <Marker
           onClick = { this.onMarkerClick }
-          title = { 'Changing Colors Garage' }
-          position = {{ lat: 37.746495, lng: -119.533156 }}
-          name = { 'Changing Colors Garage' }
+          title = { this.props.title }
+          position = {this.props.GpsCoords}
+          name = { 'mountain' }
         />
         <InfoWindow
           marker = { this.state.activeMarker }
           visible = { this.state.showingInfoWindow }
-        >
-          
+          content = { this.props.title }
+        >  
         </InfoWindow>
       </Map>
     );
@@ -70,4 +73,4 @@ class GoogleMapsContainer extends React.Component {
 }
 export default GoogleApiWrapper({
     apiKey: (keys.GOOGLE_MAPS_KEY)
-})(GoogleMapsContainer)
+})(PostMap)

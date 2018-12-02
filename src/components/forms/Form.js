@@ -3,7 +3,7 @@ import { db } from '../../firebase/firebase.js';
 import firebase from 'firebase';
 import FormValidator from './FormValidator';
 import FileUploader from "react-firebase-file-uploader"; //in bash: $ npm i react-firebase-file-uploader
-import * as routes from '../../constants/routes';
+import FormMap from './FormMap';
 import Canvas_box from '../drawline.js';
 
 import '../css/Form.css';
@@ -35,6 +35,7 @@ class Form extends Component{
                 validWhen: false,
                 message: 'Field is empty!'
             },
+            /** 
             {
                 field: 'location',
                 method: 'isEmpty',
@@ -47,6 +48,7 @@ class Form extends Component{
                 validWhen: false,
                 message: 'Field is empty!'
             },
+            */
             {
                 field: 'directions',
                 method: 'isEmpty',
@@ -75,8 +77,8 @@ class Form extends Component{
             poster: '',
             title: '',
             difficulty: '',
-            location: '',
-            GpsCoords: '',
+            //location: '',
+            //GpsCoords: '',
             directions: '',
             description: '',
 
@@ -141,8 +143,8 @@ class Form extends Component{
                 + "Poster: " + this.state.poster + "\n" 
                 + "Title: " + this.state.title + "\n"
                 + "Difficulty: " + this.state.difficulty + "\n"
-                + "Location: " + this.state.location + "\n"
-                + "GpsCoords: " + this.state.GpsCoords + "\n"
+                //+ "Location: " + this.state.location + "\n"
+                //+ "GpsCoords: " + this.state.GpsCoords + "\n"
                 + "Directions: " + this.state.directions + "\n"
                 + "Description: " + this.state.description + "\n"
                 + "Image: " + this.state.image + "\n"
@@ -152,8 +154,8 @@ class Form extends Component{
                 poster: this.state.poster,
                 title: this.state.title,
                 difficulty : this.state.difficulty,
-                location: this.state.location,
-                GpsCoords: this.state.GpsCoords,
+                //location: this.state.location,
+                //GpsCoords: this.state.GpsCoords,
                 directions: this.state.directions,
                 description: this.state.description,
                 image: this.state.image,
@@ -215,31 +217,7 @@ class Form extends Component{
                                     <span className="help-block">{validation.difficulty.message}</span>
                                 </div>
                                     
-                                <div className={validation.location.isInvalid && 'has-error'}>
-                                    <label className="control-label" htmlFor="climb_post_loca">Location:</label>
-                                    <div>
-                                        <input type="text"
-                                            id="location"
-                                            value={this.state.location}
-                                            onChange={this.handleChange}
-                                            className="form-control"/>
-                                            
-                                    </div>
-                                    <span className="help-block">{validation.location.message}</span>
-                                </div>
-                                    
-                                <div className={validation.GpsCoords.isInvalid && 'has-error'}>
-                                    <label className="control-label" htmlFor="climb_post_gps">GPS Coordinates:</label>
-                                    <div>
-                                        <input type="text"
-                                            id="GpsCoords"
-                                            value={this.state.GpsCoords}
-                                            onChange={this.handleChange}
-                                            className="form-control"/>
-                                    </div>
-                                    <span className="help-block">{validation.GpsCoords.message}</span>
-                                    <br/>
-                                </div>
+                                <div className='form-map'><FormMap/></div>
                                     
                                 <div className={validation.directions.isInvalid && 'has-error'}>
                                     <label className="control-label" htmlFor="climb_post_direc">Directions:</label>
@@ -422,6 +400,31 @@ Legacy form from some tutorial I can no longer find.
 
 
 
+                                <div className={validation.location.isInvalid && 'has-error'}>
+                                    <label className="control-label" htmlFor="climb_post_loca">Location:</label>
+                                    <div>
+                                        <input type="text"
+                                            id="location"
+                                            value={this.state.location}
+                                            onChange={this.handleChange}
+                                            className="form-control"/>
+                                            
+                                    </div>
+                                    <span className="help-block">{validation.location.message}</span>
+                                </div>
+                                    
+                                <div className={validation.GpsCoords.isInvalid && 'has-error'}>
+                                    <label className="control-label" htmlFor="climb_post_gps">GPS Coordinates:</label>
+                                    <div>
+                                        <input type="text"
+                                            id="GpsCoords"
+                                            value={this.state.GpsCoords}
+                                            onChange={this.handleChange}
+                                            className="form-control"/>
+                                    </div>
+                                    <span className="help-block">{validation.GpsCoords.message}</span>
+                                    <br/>
+                                </div>
 
 
 

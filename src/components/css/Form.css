@@ -39,6 +39,39 @@
     overflow:auto;
 }
 
+#search-container{
+    font-weight: bold;
+    
+}
+
+#location{
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    /**
+    float: left;
+    margin: 0%;
+    */
+}
+
+#search-input{
+    /**
+    float: left;
+    margin: 20px;
+    margin-top: -20px;
+    */
+    margin-bottom: 10px;
+}
+
+#gps-coords-title{
+    font-weight: bold;
+}
+
+#gps-coords{
+    margin-top: -15px;
+    font: 14px;
+}
+
 
 
 
