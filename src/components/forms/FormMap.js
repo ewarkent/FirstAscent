@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-//import * as keys from '../../constants/keys';
+import * as keys from '../../constants/keys';
 import { db } from '../../firebase/firebase.js';
-
+import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
 import '../css/Form.css';
 
 class FormMap extends Component {
@@ -167,4 +167,6 @@ class FormMap extends Component {
 	}
 }
 
-export default (FormMap)
+export default GoogleApiWrapper({
+    apiKey: (keys.GOOGLE_MAPS_KEY)
+})(FormMap)
