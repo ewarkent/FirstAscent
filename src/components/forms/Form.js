@@ -139,6 +139,7 @@ class Form extends Component{
         this.submitted = true;
 
         if(validation.isValid){
+            /*
             alert("Submission was pressed with the following attributes:\n"
                 + "Poster: " + this.state.poster + "\n" 
                 + "Title: " + this.state.title + "\n"
@@ -149,7 +150,9 @@ class Form extends Component{
                 + "Description: " + this.state.description + "\n"
                 + "Image: " + this.state.image + "\n"
                 + "ImageURL: " + this.state.imageURL + "\n");
-        
+            */
+            alert("Post Created! Press OK To Continue")
+
              db.ref('posts').push({
                 poster: this.state.poster,
                 title: this.state.title,
@@ -176,6 +179,11 @@ class Form extends Component{
 
         return (
             <div className='main'>
+                <div className='drawing_box'>
+                    <Canvas_box className='canvas_div'></Canvas_box>
+                    <div className='upload_preview'>
+                    </div>
+                </div>
                 <form name="climb_post" className="form-horizontal" onSubmit={this.handleSubmit}>
                     <div id="climb_post_box">
                         <div className='climb_info'>
@@ -281,11 +289,7 @@ class Form extends Component{
                         </div>    
                     </div>
                 </form>
-                <div className='drawing_box'>
-                    <Canvas_box className='canvas_div'></Canvas_box>
-                    <div className='upload_preview'>
-                    </div>
-                </div>
+                
             </div>
         );
     }
@@ -428,4 +432,3 @@ Legacy form from some tutorial I can no longer find.
 
 
 
- */

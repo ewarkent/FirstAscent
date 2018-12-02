@@ -75,12 +75,13 @@ class CommunityRating extends React.Component {
             var postKey = window.location.pathname.replace('/post/','');
             var comdiffRef = db.ref('posts/' + postKey + '/comdiff');
         
-            alert("Community Rating submitted: "
-                + this.state.enteredVRating);
+            //alert("Community Rating submitted: "
+                //+ this.state.enteredVRating);
         
             comdiffRef.push({
                 comdiff: this.state.enteredVRating,
             })
+            alert("Thanks For The Feedback! Press OK To Continue");
             window.location.reload();
         }
     }
@@ -90,9 +91,13 @@ class CommunityRating extends React.Component {
 
         return (
             <div className="community_difficulty">
+                <div className="comdiff_avg_rating">
+                    <p>Community Difficulty: V{averageVRating}</p>
+                </div>
+
                 <form name="community_difficulty_form">
                     <div className="form-group">
-                        <label className="control-label" htmlFor="comdiff_post">Enter V rating number (0 - 15):</label>
+                        <label className="control-label" htmlFor="comdiff_post">Enter V Rating (0 - 15):</label>
                         <div>
                             <input type="text"
                                     id="enteredVRating"
@@ -113,9 +118,7 @@ class CommunityRating extends React.Component {
                     </div>
                 </form>
 
-                <div className="comdiff_avg_rating">
-                    <p>Average community difficulty: V{averageVRating}</p>
-                </div>
+                
             </div>
             
         );
