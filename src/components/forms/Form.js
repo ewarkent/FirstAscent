@@ -4,7 +4,7 @@ import firebase from 'firebase';
 import FormValidator from './FormValidator';
 import FileUploader from "react-firebase-file-uploader"; //in bash: $ npm i react-firebase-file-uploader
 import FormMap from './FormMap';
-import Canvas_box from '../drawline.js';
+import CanvasBox from '../drawline.js';
 
 import '../css/Form.css';
 
@@ -180,7 +180,7 @@ class Form extends Component {
 		return (
 			<div className='main'>
 				<div className='drawing_box'>
-					<Canvas_box className='canvas_div'></Canvas_box>
+					<CanvasBox className='canvas_div'></CanvasBox>
 					<div className='upload_preview'>
 					</div>
 				</div>

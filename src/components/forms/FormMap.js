@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as keys from '../../constants/keys';
+//import * as keys from '../../constants/keys';
 import { db } from '../../firebase/firebase.js';
 
 import '../css/Form.css';
@@ -30,10 +30,12 @@ class FormMap extends Component {
 		this.submitted = false;
 	}
 
+	/** 
 	componentWillMount(){
 		var postKey = window.location.pathname.replace('/post/','');
 		var dbRef = db.ref('posts' + postKey);
 	}
+	*/
 
 	componentDidMount(){
 		//get current location --not working

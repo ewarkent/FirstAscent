@@ -50,7 +50,7 @@ class PostPage extends Component {
 	render() {
 		const { post } = this.state;
 		const { comments } = this.state;
-		{ console.log(post) }
+		console.log(post)
 		return (
 			<div>
 				{!!post && <PostDisplay post={post} />}
@@ -72,7 +72,7 @@ const PostDisplay = ({ post }) =>
 
 		<div className='pic-map'>
 			<div className='pic'>
-				{post.imageURL && <img src={post.imageURL} />}
+				{post.imageURL && <img src={post.imageURL} alt="mountain pic"/>}
 			</div>
 			<div className='map'><PostMap title={post.title} GpsCoords={post.GpsCoords}/></div>
 		</div>

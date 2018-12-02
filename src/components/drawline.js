@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import './css/drawline.css';
-import ladder from './ladder.jpg';
-import humedyno from './humedyno.jpg';
-import pano from './pano.jpg';
+//import ladder from './ladder.jpg';
+//import humedyno from './humedyno.jpg';
+//import pano from './pano.jpg';
 
 import ReactDOM from 'react-dom';
 
-class Canvas_box extends React.Component{
+class CanvasBox extends Component{
 
 
     constructor(props) {
@@ -170,7 +170,7 @@ class Canvas_box extends React.Component{
 
 }   
 
-export default Canvas_box
+export default CanvasBox
 
 
 
