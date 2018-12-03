@@ -82,7 +82,7 @@ const PostDisplay = ({ post }) =>
 
 		<div className='diff-star-comm_diff'>
 			<div className='diff'><span className='underline_titles'>Difficulty</span>
-				<div className='dsc_content'>{post.difficulty}</div>
+				<div className='dsc_content'>V{post.difficulty}</div>
 			</div>
 			<div className='star'><span className='underline_titles'>Star Rating</span>
 				<div className='dsc_content'><StarRating /></div>

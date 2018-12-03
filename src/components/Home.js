@@ -76,7 +76,7 @@ const PostList = ({ posts }) =>
         <div key={key}>
           <div className='posts'> 
               <div><span className='category'>Route:</span><span className='db_info'>{posts[key].title}</span></div>
-              <div><span className='category'>Difficulty:</span><span className='db_info'>{posts[key].difficulty}</span></div>
+              <div><span className='category'>Difficulty:</span><span className='db_info'>V{posts[key].difficulty}</span></div>
               <div><span className='category'>First Ascent:</span><span className='db_info'>{posts[key].poster}</span></div> 
               <div><span className='category'>Location:</span><span className='db_info'>{posts[key].location}</span></div> 
             
