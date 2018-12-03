@@ -45,6 +45,10 @@ class PostMap extends Component {
       'marginLeft': 'auto',
       'marginRight': 'auto'
     }
+    const GpsCoords = {
+      lat: this.props.GpsCoordsLat, 
+      lng: this.props.GpsCoordsLng
+    }
     return (
       <Map
         item
@@ -52,14 +56,15 @@ class PostMap extends Component {
         style = { style }
         google = { this.props.google }
         onClick = { this.onMapClick }
-        zoom = { 14 }
-        initialCenter = {{ lat: 37.746495, lng: -119.533156 }}
+        zoom = { 16 }
+        //initialCenter = {{ lat: 37.746495, lng: -119.533156 }}
+        initialCenter = {GpsCoords}
       >
         <Marker
           onClick = { this.onMarkerClick }
           title = { this.props.title }
-          position = {this.props.GpsCoords}
-          name = { 'mountain' }
+          position = {GpsCoords}
+          //name = { 'mountain' }
         />
         <InfoWindow
           marker = { this.state.activeMarker }

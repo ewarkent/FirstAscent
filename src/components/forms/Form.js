@@ -73,12 +73,15 @@ class Form extends Component {
 
 		this.state = {
 
+			postKey: '',
+
 			// basic form information
 			poster: '',
 			title: '',
 			difficulty: '',
-			//location: '',
-			//GpsCoords: '',
+			location: '',
+			GpsCoordsLat: '',
+			GpsCoordsLng: '',
 			directions: '',
 			description: '',
 
@@ -97,6 +100,24 @@ class Form extends Component {
 
 	}
 
+	componentWillMount() {
+		var newPostKey = firebase.database().ref().child('post').push().key;
+		console.log('newPostKey=' + newPostKey);
+		this.setState({ postKey: newPostKey });
+	}
+
+	/**
+	componentDidMount() {
+		var location = this.foo.returnLoc();
+		var GpsCoords = this.foo.returnGPS();
+
+		this.setState({
+			location: location,
+			GpsCoords: GpsCoords
+		});
+	}
+	*/
+
 	/* general puspose onChange()
 	*/
 	handleChange = (e) => {
@@ -105,9 +126,17 @@ class Form extends Component {
 		this.setState(
 			{ [e.target.id]: e.target.value, },
 		);
+
+		var location = this.foo.returnLoc();
+		var GpsCoordsLat = this.foo.returnGPSLat();
+		var GpsCoordsLng = this.foo.returnGPSLng();
+
+		this.setState({
+			location: location,
+			GpsCoordsLat: GpsCoordsLat,
+			GpsCoordsLng: GpsCoordsLng
+		});
 	}
-
-
 
 	handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
 
@@ -153,18 +182,29 @@ class Form extends Component {
 			*/
 			alert("Post Created! Press OK To Continue")
 
-			db.ref('posts').push({
+			//console.log('form location='+this.state.location);
+			//console.log('form GPS='+this.state.GpsCoords);
+
+			var postData = {
 				poster: this.state.poster,
 				title: this.state.title,
 				difficulty: this.state.difficulty,
-				//location: this.state.location,
-				//GpsCoords: this.state.GpsCoords,
+				location: this.state.location,
+				GpsCoordsLat: this.state.GpsCoordsLat,
+				GpsCoordsLng: this.state.GpsCoordsLng,
 				directions: this.state.directions,
 				description: this.state.description,
 				image: this.state.image,
-				imageURL: this.state.imageURL,
+				imageURL: this.state.imageURL
+			}
 
-			})
+			var updates = {};
+
+			updates['posts/' + this.state.postKey] = postData;
+			//updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+
+			db.ref().update(updates);
+
 			window.location = '/';
 		}
 	}
@@ -172,6 +212,7 @@ class Form extends Component {
 
 	//poster, title, location, gpscoords, directions, description
 	render() {
+		const postKey = this.state.postKey;
 		//<span className="help-block">{validation.description.message}</span>
 		let validation = this.submitted ?                         // if the form has been submitted at least once
 			this.validator.validate(this.state) :   // then check validity every time we render
@@ -225,7 +266,10 @@ class Form extends Component {
 									<span className="help-block">{validation.difficulty.message}</span>
 								</div>
 
-								<div className='form-map'><FormMap /></div>
+								<div className='form-map'>
+									<FormMap postKey={postKey}
+										ref={foo => { this.foo = foo; }} />
+								</div>
 
 								<div className={validation.directions.isInvalid && 'has-error'}>
 									<label className="control-label" htmlFor="climb_post_direc">Directions:</label>

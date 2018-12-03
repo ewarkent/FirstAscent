@@ -74,7 +74,9 @@ const PostDisplay = ({ post }) =>
 			<div className='pic'>
 				{post.imageURL && <img src={post.imageURL} alt="mountain pic"/>}
 			</div>
-			<div className='map'><PostMap title={post.title} GpsCoords={post.GpsCoords}/></div>
+			<div className='map'><PostMap title={post.title} 
+										GpsCoordsLat={post.GpsCoordsLat}
+										GpsCoordsLng={post.GpsCoordsLng}/></div>
 		</div>
 
 
