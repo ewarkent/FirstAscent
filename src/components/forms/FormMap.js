@@ -230,6 +230,4 @@ class FormMap extends Component {
 	}
 }
 
-export default GoogleApiWrapper({
-    apiKey: (keys.GOOGLE_MAPS_KEY)
-})(FormMap)
+export default (FormMap)
