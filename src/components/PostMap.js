@@ -5,7 +5,8 @@ import * as keys from '../constants/keys';
 class PostMap extends Component {
   static defaultProps = {
     title: 'Cool Mountain',
-    GpsCoords: { lat: 37.746495, lng: -119.533156 }
+    GpsCoordLat: 37.746495,
+    GpsCoordLng: -119.533156 
   }
   constructor(props) {
     super(props);
@@ -49,6 +50,7 @@ class PostMap extends Component {
       lat: this.props.GpsCoordsLat, 
       lng: this.props.GpsCoordsLng
     }
+    const title = this.props.title
     return (
       <Map
         item
@@ -62,14 +64,14 @@ class PostMap extends Component {
       >
         <Marker
           onClick = { this.onMarkerClick }
-          title = { this.props.title }
+          title = { title }
           position = {GpsCoords}
           //name = { 'mountain' }
         />
         <InfoWindow
           marker = { this.state.activeMarker }
           visible = { this.state.showingInfoWindow }
-          content = { this.props.title }
+          content = { title }
         >  
         </InfoWindow>
       </Map>

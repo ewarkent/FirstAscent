@@ -1,8 +1,70 @@
 .mainpage {
-    background-color: black;
+    background-image: url("yosemite.jpg");
+    background-size:     cover;                      
+    background-repeat:   no-repeat;
+    background-position: center top;
+    background-attachment: fixed;
+    padding-top: 30px;
 }
 
+.navbar {
+    background-color: black;
+    opacity: 0.65;
+    width: 70%;
+    margin: auto;
+    height: 40px;
+    padding-top: 0px;
+    text-align: center;
+}
+
+.Title {
+    font-size: 60px;
+    font-variant-caps: all-small-caps;
+    font-family: impact;
+    padding: 20px;
+    display: inline;
+    margin-inline-start: 20px;
+    margin-inline-end: 20px;
+    margin-block-end: 100px;
+    position: relative;
+    top: 12px;
+}
+
+ul {
+    color: white;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: inline;
+    position: relative;
+    top: -36px;
+}
+
+li {
+    font-size: 22px;
+    font: bold Georgia serif;
+    display: inline;
+    margin-inline-start: 20px;
+    margin-inline-end: 20px;
+    font-variant-caps: all-small-caps;
+    cursor: pointer;
+    
+}
+
+.signoutbutton {
+    display: inline;
+    font-size: 20px;
+    font: bold Georgia serif;
+    background: none;
+    border: none; 
+    color: blue; 
+}
+
+
+/**
 .links {
+    cursor: pointer;
     padding: 12px;
 }
 
@@ -59,3 +121,4 @@
     border-color: rgb(0, 0, 0);
     
 }
+*/

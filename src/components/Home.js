@@ -75,13 +75,14 @@ const PostList = ({ posts }) =>
       {Object.keys(posts).map(key =>
         <div key={key}>
           <div className='posts'> 
+              <div className='tnpic'>{posts[key].imageURL && <img src={posts[key].imageURL} alt="mountain pic"/>}</div>
               <div><span className='category'>Route:</span><span className='db_info'>{posts[key].title}</span></div>
               <div><span className='category'>Difficulty:</span><span className='db_info'>V{posts[key].difficulty}</span></div>
               <div><span className='category'>First Ascent:</span><span className='db_info'>{posts[key].poster}</span></div> 
               <div><span className='category'>Location:</span><span className='db_info'>{posts[key].location}</span></div> 
             
             <div className='link_button'>
-              <button><Link className='postlink' to={routes.POST + '/' + key}>See More!</Link></button> 
+              <Link className='postlink' to={routes.POST + '/' + key }>See More!</Link>
             </div>
           </div>  
         </div>
