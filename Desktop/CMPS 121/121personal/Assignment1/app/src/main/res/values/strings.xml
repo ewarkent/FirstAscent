@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Assignment1</string>
+
+    <string name="bio">
+           \t I\'m originally from the central valley of California. I moved to South Lake Tahoe after
+        high school where I fell in love with the outdoors. Some of my favorite hobbies I found
+        while I was living there included skiing, rock climbing, and backpacking.
+    </string>
+
+    <string name="skiDescription">
+        Here is a picture of me skiing off a cliff!
+    </string>
+
+    <string name="backpackDescription">
+        This is me \"walking\" down a beginner trail.
+    </string>
+
+    <string name="climbingDescription">
+        This is me climbing at Mayhem in South Lake Tahoe.
+    </string>
+</resources>
